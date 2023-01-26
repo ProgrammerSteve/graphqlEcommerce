@@ -1,0 +1,36 @@
+type Query {
+  items: [Item]
+  itemById: Item
+  itemsByPrice: [Item]
+}
+
+type Mutation {
+  addNewItem(
+    name: String!
+    src: String!
+    price: Float!
+    alt: String!
+    stock: Int!
+    description: String!
+  ): Item
+
+  updateItem(
+    id: ID!
+    name: String!
+    src: String!
+    price: Float!
+    alt: String!
+    stock: Int!
+    description: String!
+  ): Item
+}
+
+type Item {
+  id: String!
+  name: String!
+  src: String!
+  price: Float!
+  alt: String!
+  stock: Int!
+  description: String!
+}
