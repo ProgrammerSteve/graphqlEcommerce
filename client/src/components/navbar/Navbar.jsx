@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+//Make a min/max filter for stock
+//add a sortBy component for Alphabetical, Price, or Stock
+
 const PriceFilter = ({ min, max, handleMin, handleMax }) => {
   return (
     <div className="bg-gray-800 p-4 rounded-lg  border-solid border-2 border-gray-600">
@@ -62,31 +65,25 @@ const NavTitle = () => {
   );
 };
 
-const Navbar = () => {
-  const [min, setMin] = useState(0);
-  const [max, setMax] = useState(0);
-  const [text, setText] = useState("");
-  const handleText = (e) => {
-    setText(e.target.value);
-  };
-  const handleMin = (e) => {
-    setMin(Number(e.target.value));
-  };
-  const handleMax = (e) => {
-    setMax(Number(e.target.value));
-  };
-
+const Navbar = ({
+  textSearch,
+  handleTextSearch,
+  minPrice,
+  handleMinPrice,
+  maxPrice,
+  handleMaxPrice,
+}) => {
   return (
     <div className="h-32 bg-gray-800 shadow-lg p-8 flex items-center justify-between rounded-lg">
       <NavTitle />
 
       <div className="flex gap-4">
-        <TextFilter text={text} handleText={handleText} />
+        <TextFilter text={textSearch} handleText={handleTextSearch} />
         <PriceFilter
-          min={min}
-          max={max}
-          handleMin={handleMin}
-          handleMax={handleMax}
+          min={minPrice}
+          max={maxPrice}
+          handleMin={handleMinPrice}
+          handleMax={handleMaxPrice}
         />
       </div>
     </div>

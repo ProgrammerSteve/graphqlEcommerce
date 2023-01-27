@@ -14,6 +14,11 @@ import TextAreaInput from "../textAreaInput/TextAreaInput.jsx";
 // src: String
 // stock: Number
 
+//length: Float
+//width: Float
+//height: Float
+//weight: Float
+
 const ItemCard = ({ item }) => {
   const [name, setName] = useState(item.name);
   const [stock, setStock] = useState(item.stock);
@@ -45,31 +50,31 @@ const ItemCard = ({ item }) => {
     setSrc(e.target.value);
   };
   return (
-    <div className="h-72 rounded-xl bg-gray-300 shadow-lg flex flex-grow">
+    <div className="h-[300px] max-h-[300px] p-2 rounded-xl bg-gray-300 shadow-lg flex flex-grow">
       <div className="w-64 aspect-[2/3] rounded-xl overflow-clip">
         <img src={item.src} alt={item.alt} className="w-full h-full" />
       </div>
 
       <div className="flex-[2] flex flex-col">
-        <div className="grid grid-cols-2 gap-3 px-4 bg-blue-400">
+        <div className="grid grid-cols-2 gap-3 px-4 ">
           <TextInput title={"Name"} value={name} handler={handleName} />
           <TextInput title={"Alt"} value={alt} handler={handleAlt} />
           <IntegerInput title={"Stock"} value={stock} handler={handleStock} />
           <PriceInput price={price} handlePrice={handlePrice} />
         </div>
-        <div className="px-4 grow  bg-red-300">
+        <div className="px-4 pt-2 grow  ">
           <TextAreaInput title="Src" value={src} handler={handleSrc} />
         </div>
       </div>
 
-      <div className="flex-1 bg-green-300 grid justify-center">
-        <FloatInput title="Length [cm]" value={stock} handler={handleStock} />
-        <FloatInput title="Width [cm]" value={stock} handler={handleStock} />
-        <FloatInput title="Height [cm]" value={stock} handler={handleStock} />
+      <div className="flex-1  grid place-items-center">
+        <FloatInput title="Length [in]" value={stock} handler={handleStock} />
+        <FloatInput title="Width [in]" value={stock} handler={handleStock} />
+        <FloatInput title="Height [in]" value={stock} handler={handleStock} />
         <FloatInput title="Weight [lbs]" value={stock} handler={handleStock} />
       </div>
 
-      <div className="flex-1 bg-purple-300">
+      <div className="flex-1 ">
         <TextAreaInput
           title="Description Text"
           value={description}

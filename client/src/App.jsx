@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./app.css";
 import ItemCard from "./components/itemCard/ItemCard.jsx";
 import ItemContainer from "./components/itemContainer/ItemContainer.jsx";
@@ -26,13 +26,52 @@ const App = () => {
     console.log("data:", data);
   }, [data]);
 
+  const [textSearch, setTextSearch] = useState("");
+  const handleTextSearch = (e) => {
+    setTextSearch(e.target.value);
+  };
+  const [minPrice, setMinPrice] = useState(0);
+  const handleMinPrice = (e) => {
+    setMinPrice(Number(e.target.value));
+  };
+  const [maxPrice, setMaxPrice] = useState(0);
+  const handleMaxPrice = (e) => {
+    setMaxPrice(Number(e.target.value));
+  };
+
   return (
     <ItemContainer>
-      <Navbar />
+      <Navbar
+        textSearch={textSearch}
+        handleTextSearch={handleTextSearch}
+        minPrice={minPrice}
+        handleMinPrice={handleMinPrice}
+        maxPrice={maxPrice}
+        handleMaxPrice={handleMaxPrice}
+      />
       <div className="grow w-full overflow-y-scroll scrollbar-hide flex flex-col gap-4">
         {!loading &&
           !error &&
-          data.items.map((item) => <ItemCard item={item} key={item.id} />)}
+          data.items
+            .filter((item) => {
+              if (textSearch !== "") {
+                let name = `${item.name}`;
+                return name.toLowerCase().includes(textSearch.toLowerCase());
+              } else {
+                return true;
+              }
+            })
+            .filter((item) => {
+              let upperBool = true;
+              let lowerBool = true;
+              if (maxPrice !== 0) {
+                upperBool = Number(item.price) <= maxPrice;
+              }
+              lowerBool = Number(item.price) >= minPrice;
+
+              return lowerBool && upperBool;
+            })
+            .map((item) => <ItemCard item={item} key={item.id} />)}
       </div>
     </ItemContainer>
   );
