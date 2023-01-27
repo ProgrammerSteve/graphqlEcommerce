@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const StockInput = ({ stock, handleStock }) => {
+const TextInput = ({ title, value, handler }) => {
   const [active, setActive] = useState(false);
   const toggleActive = () => {
     setActive(!active);
@@ -8,21 +8,19 @@ const StockInput = ({ stock, handleStock }) => {
   return (
     <div className="bg-gray-800 text-gray-100 h-12 flex flex-grow w-64 rounded-lg">
       <div className="h-full w-18 bg-gray-800 grid place-items-center px-4 rounded-tl-lg rounded-bl-lg">
-        <label>Stock</label>
+        <label>{title}</label>
       </div>
 
       <div className="grow h-full bg-gray-500">
         {active ? (
           <input
-            type="number"
-            value={stock}
-            min="0"
-            step="1"
-            onChange={handleStock}
+            type="text"
+            value={value}
+            onChange={handler}
             className="w-full h-full text-black pl-2"
           />
         ) : (
-          <div className="grid items-center h-full w-full pl-2">{stock}</div>
+          <div className="grid items-center h-full w-full pl-2">{value}</div>
         )}
       </div>
 
@@ -52,4 +50,4 @@ const StockInput = ({ stock, handleStock }) => {
   );
 };
 
-export default StockInput;
+export default TextInput;
