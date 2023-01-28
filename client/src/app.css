@@ -2,11 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .textarea{
+  display: block;
+  resize: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   height: 100%;
   width: 100%;
- -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+ -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+.textareadiv{
+  display: block;
+  resize: none;
+  height: 100%;
+  width: 100%;
+ -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;        
+  background-color: rgb(107 114 128);
+  color: rgb(255 255 255);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+
+
+
+}
+.textareadiv:focus{
+  outline:none;
+}
+.textareadiv::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }

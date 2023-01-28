@@ -50,36 +50,50 @@ const ItemCard = ({ item }) => {
     setSrc(e.target.value);
   };
   return (
-    <div className="h-[300px] max-h-[300px] p-2 rounded-xl bg-gray-300 shadow-lg flex flex-grow">
-      <div className="w-64 aspect-[2/3] rounded-xl overflow-clip">
-        <img src={item.src} alt={item.alt} className="w-full h-full" />
-      </div>
-
-      <div className="flex-[2] flex flex-col">
-        <div className="grid grid-cols-2 gap-3 px-4 ">
-          <TextInput title={"Name"} value={name} handler={handleName} />
-          <TextInput title={"Alt"} value={alt} handler={handleAlt} />
-          <IntegerInput title={"Stock"} value={stock} handler={handleStock} />
-          <PriceInput price={price} handlePrice={handlePrice} />
-        </div>
-        <div className="px-4 pt-2 grow  ">
-          <TextAreaInput title="Src" value={src} handler={handleSrc} />
-        </div>
-      </div>
-
-      <div className="flex-1  grid place-items-center">
-        <FloatInput title="Length [in]" value={stock} handler={handleStock} />
-        <FloatInput title="Width [in]" value={stock} handler={handleStock} />
-        <FloatInput title="Height [in]" value={stock} handler={handleStock} />
-        <FloatInput title="Weight [lbs]" value={stock} handler={handleStock} />
-      </div>
-
-      <div className="flex-1 ">
-        <TextAreaInput
-          title="Description Text"
-          value={description}
-          handler={handleDescription}
+    <div className="h-[300px] max-h-[300px] p-2 rounded-xl bg-gray-300 shadow-lg box-content flex flex-grow gap-2">
+      <div className="w-[200px] h-[300px] rounded-xl bg-red-700">
+        <img
+          src={item.src}
+          alt={item.alt}
+          className="w-[200px] h-full box-border"
         />
+      </div>
+
+      <div className="grow h-[300px] flex gap-2 box-border">
+        <div className="w-[50%] h-full flex flex-col">
+          <div className="grid grid-cols-2 gap-3">
+            <TextInput title={"Name"} value={name} handler={handleName} />
+            <TextInput title={"Alt"} value={alt} handler={handleAlt} />
+            <IntegerInput title={"Stock"} value={stock} handler={handleStock} />
+            <PriceInput
+              title={"Price"}
+              price={price}
+              handlePrice={handlePrice}
+            />
+          </div>
+          <div className="pt-2 grow  ">
+            <TextAreaInput title="Src" value={src} handler={handleSrc} />
+          </div>
+        </div>
+
+        <div className="w-[25%] h-[300px] box-border gap-2 flex flex-col justify-between">
+          <FloatInput title="Length [in]" value={stock} handler={handleStock} />
+          <FloatInput title="Width [in]" value={stock} handler={handleStock} />
+          <FloatInput title="Height [in]" value={stock} handler={handleStock} />
+          <FloatInput
+            title="Weight [lbs]"
+            value={stock}
+            handler={handleStock}
+          />
+        </div>
+
+        <div className="w-[25%] h-[300px]">
+          <TextAreaInput
+            title="Description Text"
+            value={description}
+            handler={handleDescription}
+          />
+        </div>
       </div>
     </div>
   );
