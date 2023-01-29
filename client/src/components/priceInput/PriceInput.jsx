@@ -1,7 +1,13 @@
 import React from "react";
 import InputWrapper from "../inputWrapper/InputWrapper.jsx";
 
-const PriceInput = ({ title, price, handlePrice, itemState }) => {
+const PriceInput = ({
+  title,
+  price,
+  handlePrice,
+  itemState,
+  newItem = false,
+}) => {
   let priceString = price.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
@@ -11,6 +17,7 @@ const PriceInput = ({ title, price, handlePrice, itemState }) => {
       wrapperTitle={title}
       wrapperValue={priceString}
       itemState={itemState}
+      newItem={newItem}
     >
       <input
         type="number"

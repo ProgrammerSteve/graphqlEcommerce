@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import EditSvg from "../editSvg/EditSvg.jsx";
 import ConfirmSvg from "../confirmSvg/ConfirmSvg.jsx";
 
-const TextAreaInput = ({ title, value, handler, itemState }) => {
+const TextAreaInput = ({
+  title,
+  value,
+  handler,
+  itemState,
+  newItem = false,
+}) => {
   const [active, setActive] = useState(false);
   const toggleActive = () => {
     setActive(!active);
@@ -15,6 +21,7 @@ const TextAreaInput = ({ title, value, handler, itemState }) => {
           active={active}
           toggleActive={toggleActive}
           itemState={itemState}
+          newItem={newItem}
         />
       </div>
       <div className="grow">
@@ -40,7 +47,13 @@ const TextAreaInput = ({ title, value, handler, itemState }) => {
 
 export default TextAreaInput;
 
-const HeaderComponent = ({ title, active, toggleActive, itemState }) => {
+const HeaderComponent = ({
+  title,
+  active,
+  toggleActive,
+  itemState,
+  newItem = false,
+}) => {
   return (
     <>
       <div className="bg-gray-800 h-[100%] grid place-items-center rounded-tl-lg rounded-bl-lg">
@@ -48,7 +61,11 @@ const HeaderComponent = ({ title, active, toggleActive, itemState }) => {
       </div>
 
       {active ? (
-        <ConfirmSvg itemState={itemState} toggleActive={toggleActive} />
+        <ConfirmSvg
+          itemState={itemState}
+          toggleActive={toggleActive}
+          newItem={newItem}
+        />
       ) : (
         <EditSvg toggleActive={toggleActive} />
       )}

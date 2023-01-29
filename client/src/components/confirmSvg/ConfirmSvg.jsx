@@ -59,7 +59,7 @@ export const UPDATE_ITEM = gql`
   }
 `;
 
-const ConfirmSvg = ({ itemState, toggleActive }) => {
+const ConfirmSvg = ({ itemState, toggleActive, newItem }) => {
   const [updateItem, { data, loading, error }] = useMutation(UPDATE_ITEM, {
     variables: {
       id: itemState.id,
@@ -86,10 +86,17 @@ const ConfirmSvg = ({ itemState, toggleActive }) => {
     toggleActive();
   };
 
+  const handleNew = () => {
+    console.log("svg Handler");
+    console.log(itemState);
+    console.log("New Item Handler");
+    toggleActive();
+  };
+
   return (
     <div
       className="bg-gray-800 h-full w-[48px] rounded-tr-lg rounded-br-lg cursor-pointer grid place-items-center"
-      onClick={handleUpdate}
+      onClick={newItem ? handleNew : handleUpdate}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

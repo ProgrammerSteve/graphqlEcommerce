@@ -36,7 +36,7 @@ const ItemCard = ({ item }) => {
 
   return (
     <div className="h-[300px] max-h-[300px] p-2 rounded-xl bg-gray-300 shadow-lg box-content flex flex-grow gap-2">
-      <div className="w-[200px] h-[300px] rounded-xl bg-red-700">
+      <div className="w-[200px] h-[300px] rounded-xl bg-gray-700">
         <img
           src={item.src}
           alt={item.alt}
