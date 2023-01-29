@@ -39,9 +39,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
-
-
-
 }
 .textareadiv:focus{
   outline:none;

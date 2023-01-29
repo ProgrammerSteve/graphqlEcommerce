@@ -241,17 +241,19 @@ function getItemsByPrice(min, max) {
 }
 
 function updateItem(id, name, src, price, alt, stock, description) {
-  const index = null;
+  if (!id || !name || !src || !price || !alt || !stock || !description) {
+    throw new Error("missing a input parameter");
+  }
+
+  let index = null;
   items.forEach((obj, ind) => {
     if (obj.id === id) {
       index = ind;
     }
   });
 
-  if (index !== null) {
-    return {
-      error: "no Item matches inputted id",
-    };
+  if (index === null) {
+    throw new Error("no Item matches inputted id");
   }
 
   const updatedItem = {
@@ -264,11 +266,15 @@ function updateItem(id, name, src, price, alt, stock, description) {
     description,
   };
 
-  items[index] = updateItem;
+  items[index] = updatedItem;
   return updatedItem;
 }
 
 function addNewItem(name, src, price, alt, stock, description) {
+  if (!name || !src || !price || !alt || !stock || !description) {
+    throw new Error("missing a input parameter");
+  }
+
   const newItem = {
     id: uuidv4(),
     name,

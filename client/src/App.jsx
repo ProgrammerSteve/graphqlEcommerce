@@ -4,26 +4,27 @@ import ItemCard from "./components/itemCard/ItemCard.jsx";
 import ItemContainer from "./components/itemContainer/ItemContainer.jsx";
 import Navbar from "./components/navbar/Navbar.jsx";
 import { useQuery, gql } from "@apollo/client";
+// import { GET_ITEMS } from "./utils/graphQL/queries";
+
+const GET_ITEMS = gql`
+  query GetItems {
+    items {
+      id
+      name
+      src
+      price
+      alt
+      stock
+      description
+    }
+  }
+`;
 
 const App = () => {
-  const GET_ITEMS = gql`
-    query GetItems {
-      items {
-        id
-        name
-        src
-        price
-        alt
-        stock
-        description
-      }
-    }
-  `;
-
   const { loading, error, data } = useQuery(GET_ITEMS);
 
   useEffect(() => {
-    console.log("data:", data);
+    console.log("data changed:", data);
   }, [data]);
 
   const [textSearch, setTextSearch] = useState("");

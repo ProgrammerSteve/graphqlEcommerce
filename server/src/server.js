@@ -20,7 +20,7 @@ async function startApolloServer() {
 
   app.use(
     cors({
-      origin: "http://localhost:3001",
+      origin: "*",
     })
   );
   app.use(morgan("combined"));

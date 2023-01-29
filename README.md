@@ -1,0 +1,1 @@
+# npm run deploy to build frontend and run backend

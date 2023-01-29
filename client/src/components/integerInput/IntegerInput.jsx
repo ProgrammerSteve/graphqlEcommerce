@@ -1,9 +1,13 @@
 import React from "react";
 import InputWrapper from "../inputWrapper/InputWrapper.jsx";
 
-const IntegerInput = ({ title, value, handler }) => {
+const IntegerInput = ({ title, value, handler, itemState }) => {
   return (
-    <InputWrapper wrapperTitle={title} wrapperValue={value}>
+    <InputWrapper
+      wrapperTitle={title}
+      wrapperValue={value}
+      itemState={itemState}
+    >
       <input
         type="number"
         value={value}
