@@ -6,21 +6,8 @@ import ItemContainer from "./components/itemContainer/ItemContainer.jsx";
 import Navbar from "./components/navbar/Navbar.jsx";
 import { useQuery, gql } from "@apollo/client";
 import NewItemCard from "./components/newItemCard/NewItemCard.jsx";
-// import { GET_ITEMS } from "./utils/graphQL/queries";
 
-const GET_ITEMS = gql`
-  query GetItems {
-    items {
-      id
-      name
-      src
-      price
-      alt
-      stock
-      description
-    }
-  }
-`;
+import { GET_ITEMS } from "../utils/gqlQueries/queries";
 
 const App = () => {
   const { loading, error, data } = useQuery(GET_ITEMS);
@@ -63,7 +50,7 @@ const App = () => {
       />
 
       {showNewItem ? (
-        <NewItemCard />
+        <NewItemCard toggleNewItem={toggleNewItem} />
       ) : (
         <div className="grow w-full overflow-y-scroll scrollbar-hide flex flex-col gap-4">
           {!loading &&

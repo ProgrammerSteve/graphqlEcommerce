@@ -4,8 +4,10 @@ import IntegerInput from "../integerInput/IntegerInput.jsx";
 import TextInput from "../textInput/TextInput.jsx";
 import TextAreaInput from "../textAreaInput/TextAreaInput.jsx";
 import PriceInput from "../priceInput/PriceInput.jsx";
+import { useMutation, gql } from "@apollo/client";
+import { ADD_NEW_ITEM } from "../../../utils/gqlQueries/mutations.js";
 
-const NewItemCard = () => {
+const NewItemCard = ({ toggleNewItem }) => {
   const [itemState, setItem] = useState({
     id: "",
     name: "",
@@ -15,6 +17,30 @@ const NewItemCard = () => {
     price: 0.0,
     description: "",
   });
+
+  const [addNewItem, { data, loading, error }] = useMutation(ADD_NEW_ITEM);
+
+  const handleAddNewItem = async () => {
+    console.log("Inputted Value:", itemState);
+    try {
+      await addNewItem({
+        variables: {
+          name: itemState.name,
+          src: itemState.src,
+          price: itemState.price,
+          alt: itemState.alt,
+          stock: itemState.stock,
+          description: itemState.description,
+        },
+      });
+      console.log("data:", data);
+      toggleNewItem();
+    } catch (err) {
+      console.log("trycatcherr:", err);
+      console.log("error:", error);
+    }
+  };
+
   const handleName = ({ target: { value } }) =>
     setItem({ ...itemState, name: value });
   const handleStock = ({ target: { value } }) =>
@@ -128,10 +154,16 @@ const NewItemCard = () => {
         </div>
       </div>
       <div className="flex ml-auto gap-4 w-1/2 ">
-        <div className="bg-gray-800 hover:bg-gray-700 box-content w-1/3 text-white text-center py-6 px-6 rounded-xl cursor-pointer">
+        <div
+          className="bg-gray-800 hover:bg-gray-700 box-content w-1/3 text-white text-center py-6 px-6 rounded-xl cursor-pointer"
+          onClick={toggleNewItem}
+        >
           Cancel
         </div>
-        <div className="bg-gray-800 hover:bg-gray-700 box-content w-2/3 text-white text-center py-6 px-6 rounded-xl cursor-pointer">
+        <div
+          className="bg-gray-800 hover:bg-gray-700 box-content w-2/3 text-white text-center py-6 px-6 rounded-xl cursor-pointer"
+          onClick={handleAddNewItem}
+        >
           Add Item
         </div>
       </div>
