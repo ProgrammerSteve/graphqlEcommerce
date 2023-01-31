@@ -8,6 +8,12 @@ export const ADD_NEW_ITEM = gql`
     $alt: String!
     $stock: Int!
     $description: String!
+    $length: Float!
+    $width: Float!
+    $height: Float!
+    $weight: Float!
+    $discontinued: Boolean!
+    $category: String!
   ) {
     addNewItem(
       name: $name
@@ -16,6 +22,12 @@ export const ADD_NEW_ITEM = gql`
       alt: $alt
       stock: $stock
       description: $description
+      length: $length
+      width: $width
+      height: $height
+      weight: $weight
+      discontinued: $discontinued
+      category: $category
     ) {
       name
       src
@@ -23,6 +35,12 @@ export const ADD_NEW_ITEM = gql`
       alt
       stock
       description
+      length
+      width
+      height
+      weight
+      discontinued
+      category
     }
   }
 `;
@@ -35,6 +53,12 @@ export const UPDATE_ITEM = gql`
     $alt: String!
     $stock: Int!
     $description: String!
+    $length: Float!
+    $width: Float!
+    $height: Float!
+    $weight: Float!
+    $discontinued: Boolean!
+    $category: String!
   ) {
     updateItem(
       id: $id
@@ -44,6 +68,12 @@ export const UPDATE_ITEM = gql`
       alt: $alt
       stock: $stock
       description: $description
+      length: $length
+      width: $width
+      height: $height
+      weight: $weight
+      discontinued: $discontinued
+      category: $category
     ) {
       id
       name
@@ -52,6 +82,12 @@ export const UPDATE_ITEM = gql`
       alt
       stock
       description
+      length
+      width
+      height
+      weight
+      discontinued
+      category
     }
   }
 `;

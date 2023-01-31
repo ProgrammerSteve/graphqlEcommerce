@@ -10,6 +10,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00001",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Controller",
@@ -20,6 +26,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00002",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Backpack",
@@ -30,6 +42,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00003",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Shoes",
@@ -40,6 +58,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00004",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Camera",
@@ -50,6 +74,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00005",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Headphones",
@@ -60,6 +90,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00006",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Watch",
@@ -70,6 +106,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00007",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Bottle",
@@ -80,6 +122,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00008",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Pen",
@@ -90,6 +138,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00009",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Hair Dryer",
@@ -100,6 +154,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00010",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
 
   {
@@ -111,6 +171,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00011",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Stool",
@@ -121,6 +187,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00012",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Drone",
@@ -131,6 +203,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00013",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Redbull",
@@ -141,6 +219,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00014",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Fishing Pole",
@@ -151,6 +235,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00015",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Glasses",
@@ -161,6 +251,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00016",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Laptop",
@@ -171,6 +267,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00017",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Candle",
@@ -181,6 +283,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00018",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Popsicle",
@@ -191,6 +299,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00019",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
   {
     name: "Gamer Chair",
@@ -201,6 +315,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00020",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
 
   {
@@ -212,6 +332,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00021",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
 
   {
@@ -223,6 +349,12 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     id: "00022",
+    length: 1.0,
+    width: 1.0,
+    height: 1.0,
+    weight: 1.0,
+    discontinued: false,
+    category: "category1",
   },
 ];
 
@@ -240,10 +372,35 @@ function getItemsByPrice(min, max) {
   });
 }
 
-function updateItem(id, name, src, price, alt, stock, description) {
-  if (!id || !name || !src || !price || !alt || !stock || !description) {
-    throw new Error("missing a input parameter");
-  }
+function updateItem(
+  id,
+  name,
+  src,
+  price,
+  alt,
+  stock,
+  description,
+  length,
+  width,
+  height,
+  weight,
+  discontinued,
+  category
+) {
+  if (!id) throw new Error("missing a input parameter: id");
+  if (!name) throw new Error("missing a input parameter: name");
+  if (!src) throw new Error("missing a input parameter: src");
+  if (!price) throw new Error("missing a input parameter: price");
+  if (!alt) throw new Error("missing a input parameter: alt");
+  if (!stock) throw new Error("missing a input parameter: stock");
+  if (!description) throw new Error("missing a input parameter: description");
+  if (!length) throw new Error("missing a input parameter: length");
+  if (!width) throw new Error("missing a input parameter: width");
+  if (!height) throw new Error("missing a input parameter: height");
+  if (!weight) throw new Error("missing a input parameter: weight");
+  if (discontinued === null || discontinued === undefined)
+    throw new Error("missing a input parameter: discontinued");
+  if (!category) throw new Error("missing a input parameter: category");
 
   let index = null;
   items.forEach((obj, ind) => {
@@ -264,16 +421,45 @@ function updateItem(id, name, src, price, alt, stock, description) {
     alt,
     stock,
     description,
+    length,
+    width,
+    height,
+    weight,
+    discontinued,
+    category,
   };
 
   items[index] = updatedItem;
   return updatedItem;
 }
 
-function addNewItem(name, src, price, alt, stock, description) {
-  if (!name || !src || !price || !alt || !stock || !description) {
-    throw new Error("missing a input parameter");
-  }
+function addNewItem(
+  name,
+  src,
+  price,
+  alt,
+  stock,
+  description,
+  length,
+  width,
+  height,
+  weight,
+  discontinued,
+  category
+) {
+  if (!name) throw new Error("missing a input parameter: name");
+  if (!src) throw new Error("missing a input parameter: src");
+  if (!price) throw new Error("missing a input parameter: price");
+  if (!alt) throw new Error("missing a input parameter: alt");
+  if (!stock) throw new Error("missing a input parameter: stock");
+  if (!description) throw new Error("missing a input parameter: description");
+  if (!length) throw new Error("missing a input parameter: length");
+  if (!width) throw new Error("missing a input parameter: width");
+  if (!height) throw new Error("missing a input parameter: height");
+  if (!weight) throw new Error("missing a input parameter: weight");
+  if (discontinued === null || discontinued === undefined)
+    throw new Error("missing a input parameter: discontinued");
+  if (!category) throw new Error("missing a input parameter: category");
 
   const newItem = {
     id: uuidv4(),
@@ -283,6 +469,12 @@ function addNewItem(name, src, price, alt, stock, description) {
     alt,
     stock,
     description,
+    length,
+    width,
+    height,
+    weight,
+    discontinued,
+    category,
   };
   items.push(newItem);
   return newItem;

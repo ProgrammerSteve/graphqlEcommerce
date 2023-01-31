@@ -12,6 +12,12 @@ type Mutation {
     alt: String!
     stock: Int!
     description: String!
+    length: Float!
+    width: Float!
+    height: Float!
+    weight: Float!
+    discontinued: Boolean!
+    category: String!
   ): Item
 
   updateItem(
@@ -22,6 +28,12 @@ type Mutation {
     alt: String!
     stock: Int!
     description: String!
+    length: Float!
+    width: Float!
+    height: Float!
+    weight: Float!
+    discontinued: Boolean!
+    category: String!
   ): Item
 }
 
@@ -33,4 +45,10 @@ type Item {
   alt: String!
   stock: Int!
   description: String!
+  length: Float!
+  width: Float!
+  height: Float!
+  weight: Float!
+  discontinued: Boolean!
+  category: String!
 }

@@ -12,13 +12,6 @@ import { GET_ITEMS } from "../utils/gqlQueries/queries";
 const App = () => {
   const { loading, error, data } = useQuery(GET_ITEMS);
 
-  useEffect(() => {
-    console.log("data changed:", data);
-  }, [data]);
-  useEffect(() => {
-    console.log("showNewItem:", showNewItem ? "true" : "false");
-  }, [showNewItem]);
-
   const [textSearch, setTextSearch] = useState("");
   const handleTextSearch = (e) => {
     setTextSearch(e.target.value);
@@ -36,6 +29,10 @@ const App = () => {
   const toggleNewItem = () => {
     setShowNewItem(!showNewItem);
   };
+
+  useEffect(() => {
+    console.log("data:", data);
+  }, [data]);
 
   return (
     <ItemContainer>

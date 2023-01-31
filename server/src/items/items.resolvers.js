@@ -12,6 +12,7 @@ module.exports = {
       return itemsModel.getItemsByPrice(args.min, args.max);
     },
   },
+
   Mutation: {
     addNewItem: (_, args) => {
       return itemsModel.addNewItem(
@@ -20,7 +21,13 @@ module.exports = {
         args.price,
         args.alt,
         args.stock,
-        args.description
+        args.description,
+        args.length,
+        args.width,
+        args.height,
+        args.weight,
+        args.discontinued,
+        args.category
       );
     },
 
@@ -32,7 +39,13 @@ module.exports = {
         args.price,
         args.alt,
         args.stock,
-        args.description
+        args.description,
+        args.length,
+        args.width,
+        args.height,
+        args.weight,
+        args.discontinued,
+        args.category
       );
     },
   },

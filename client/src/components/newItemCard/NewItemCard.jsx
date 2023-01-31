@@ -4,8 +4,10 @@ import IntegerInput from "../integerInput/IntegerInput.jsx";
 import TextInput from "../textInput/TextInput.jsx";
 import TextAreaInput from "../textAreaInput/TextAreaInput.jsx";
 import PriceInput from "../priceInput/PriceInput.jsx";
+import BooleanInput from "../booleanInput/BooleanInput.jsx";
 import { useMutation, gql } from "@apollo/client";
 import { ADD_NEW_ITEM } from "../../../utils/gqlQueries/mutations.js";
+import { GET_ITEMS } from "../../../utils/gqlQueries/queries.js";
 
 const NewItemCard = ({ toggleNewItem }) => {
   const [itemState, setItem] = useState({
@@ -16,12 +18,20 @@ const NewItemCard = ({ toggleNewItem }) => {
     stock: 0,
     price: 0.0,
     description: "",
+    length: 0.0,
+    width: 0.0,
+    height: 0.0,
+    weight: 0.0,
+    category: "",
+    discontinued: false,
   });
 
-  const [addNewItem, { data, loading, error }] = useMutation(ADD_NEW_ITEM);
+  const [addNewItem, { data, loading, error }] = useMutation(ADD_NEW_ITEM, {
+    refetchQueries: [{ query: GET_ITEMS }],
+  });
 
   const handleAddNewItem = async () => {
-    console.log("Inputted Value:", itemState);
+    console.log("itemState:", itemState);
     try {
       await addNewItem({
         variables: {
@@ -31,9 +41,14 @@ const NewItemCard = ({ toggleNewItem }) => {
           alt: itemState.alt,
           stock: itemState.stock,
           description: itemState.description,
+          length: itemState.length,
+          width: itemState.width,
+          height: itemState.height,
+          weight: itemState.weight,
+          category: itemState.category,
+          discontinued: itemState.discontinued,
         },
       });
-      console.log("data:", data);
       toggleNewItem();
     } catch (err) {
       console.log("trycatcherr:", err);
@@ -53,7 +68,20 @@ const NewItemCard = ({ toggleNewItem }) => {
     setItem({ ...itemState, description: value });
   const handleSrc = ({ target: { value } }) =>
     setItem({ ...itemState, src: value });
-
+  const handleLength = ({ target: { value } }) =>
+    setItem({ ...itemState, length: Number(value) });
+  const handleWidth = ({ target: { value } }) =>
+    setItem({ ...itemState, width: Number(value) });
+  const handleHeight = ({ target: { value } }) =>
+    setItem({ ...itemState, height: Number(value) });
+  const handleWeight = ({ target: { value } }) =>
+    setItem({ ...itemState, weight: Number(value) });
+  const handleCategory = ({ target: { value } }) =>
+    setItem({ ...itemState, category: `${value}`.toLowerCase() });
+  const handleDiscontinuedTrue = () =>
+    setItem({ ...itemState, discontinued: true });
+  const handleDiscontinuedFalse = () =>
+    setItem({ ...itemState, discontinued: false });
   return (
     <div className="p-2 rounded-xl bg-gray-300 shadow-lg box-content grow flex flex-col gap-4">
       <div className="bg-gray-800 rounded-xl h-16 px-6 py-2 w-full text-white text-2xl text-center">
@@ -99,6 +127,21 @@ const NewItemCard = ({ toggleNewItem }) => {
                 itemState={itemState}
                 newItem={true}
               />
+              <TextInput
+                title={"Category"}
+                value={itemState.category}
+                handler={handleCategory}
+                itemState={itemState}
+                newItem={true}
+              />
+              <BooleanInput
+                title={"Discontined"}
+                value={itemState.discontinued}
+                handleTrue={handleDiscontinuedTrue}
+                handleFalse={handleDiscontinuedFalse}
+                itemState={itemState}
+                newItem={true}
+              />
             </div>
             <div className="pt-2 grow  ">
               <TextAreaInput
@@ -114,29 +157,29 @@ const NewItemCard = ({ toggleNewItem }) => {
           <div className="w-[25%] h-[300px] box-border gap-2 flex flex-col justify-between">
             <FloatInput
               title="Length [in]"
-              value={itemState.stock}
-              handler={handleStock}
+              value={itemState.length}
+              handler={handleLength}
               itemState={itemState}
               newItem={true}
             />
             <FloatInput
               title="Width [in]"
-              value={itemState.stock}
-              handler={handleStock}
+              value={itemState.width}
+              handler={handleWidth}
               itemState={itemState}
               newItem={true}
             />
             <FloatInput
               title="Height [in]"
-              value={itemState.stock}
-              handler={handleStock}
+              value={itemState.height}
+              handler={handleHeight}
               itemState={itemState}
               newItem={true}
             />
             <FloatInput
               title="Weight [lbs]"
-              value={itemState.stock}
-              handler={handleStock}
+              value={itemState.weight}
+              handler={handleWeight}
               itemState={itemState}
               newItem={true}
             />
@@ -155,13 +198,13 @@ const NewItemCard = ({ toggleNewItem }) => {
       </div>
       <div className="flex ml-auto gap-4 w-1/2 ">
         <div
-          className="bg-gray-800 hover:bg-gray-700 box-content w-1/3 text-white text-center py-6 px-6 rounded-xl cursor-pointer"
+          className="bg-gray-800 hover:bg-gray-700 box-content w-1/3 text-white text-center py-6 px-6 rounded-xl cursor-pointer select-none"
           onClick={toggleNewItem}
         >
           Cancel
         </div>
         <div
-          className="bg-gray-800 hover:bg-gray-700 box-content w-2/3 text-white text-center py-6 px-6 rounded-xl cursor-pointer"
+          className="bg-gray-800 hover:bg-gray-700 box-content w-2/3 text-white text-center py-6 px-6 rounded-xl cursor-pointer select-none"
           onClick={handleAddNewItem}
         >
           Add Item

@@ -4,20 +4,7 @@ import FloatInput from "../floatInput/FloatInput.jsx";
 import IntegerInput from "../integerInput/IntegerInput.jsx";
 import TextInput from "../textInput/TextInput.jsx";
 import TextAreaInput from "../textAreaInput/TextAreaInput.jsx";
-
-//    item
-// alt: String
-// description: String
-// id: String
-// name: String
-// price: Float
-// src: String
-// stock: Number
-
-//length: Float
-//width: Float
-//height: Float
-//weight: Float
+import BooleanInput from "../booleanInput/BooleanInput.jsx";
 
 const ItemCard = ({ item }) => {
   const [itemState, setItem] = useState(item);
@@ -33,6 +20,20 @@ const ItemCard = ({ item }) => {
     setItem({ ...itemState, description: value });
   const handleSrc = ({ target: { value } }) =>
     setItem({ ...itemState, src: value });
+  const handleLength = ({ target: { value } }) =>
+    setItem({ ...itemState, length: Number(value) });
+  const handleWidth = ({ target: { value } }) =>
+    setItem({ ...itemState, width: Number(value) });
+  const handleHeight = ({ target: { value } }) =>
+    setItem({ ...itemState, height: Number(value) });
+  const handleWeight = ({ target: { value } }) =>
+    setItem({ ...itemState, weight: Number(value) });
+  const handleDiscontinuedTrue = () =>
+    setItem({ ...itemState, discontinued: true });
+  const handleDiscontinuedFalse = () =>
+    setItem({ ...itemState, discontinued: false });
+  const handleCategory = ({ target: { value } }) =>
+    setItem({ ...itemState, category: `${value}`.toLowerCase() });
 
   return (
     <div className="h-[300px] max-h-[300px] p-2 rounded-xl bg-gray-300 shadow-lg box-content flex flex-grow gap-2">
@@ -71,6 +72,19 @@ const ItemCard = ({ item }) => {
               handlePrice={handlePrice}
               itemState={itemState}
             />
+            <TextInput
+              title={"Category"}
+              value={itemState.category}
+              handler={handleCategory}
+              itemState={itemState}
+            />
+            <BooleanInput
+              title={"Discontined"}
+              value={itemState.discontinued}
+              handleTrue={handleDiscontinuedTrue}
+              handleFalse={handleDiscontinuedFalse}
+              itemState={itemState}
+            />
           </div>
           <div className="pt-2 grow  ">
             <TextAreaInput
@@ -85,26 +99,26 @@ const ItemCard = ({ item }) => {
         <div className="w-[25%] h-[300px] box-border gap-2 flex flex-col justify-between">
           <FloatInput
             title="Length [in]"
-            value={itemState.stock}
-            handler={handleStock}
+            value={itemState.length}
+            handler={handleLength}
             itemState={itemState}
           />
           <FloatInput
             title="Width [in]"
-            value={itemState.stock}
-            handler={handleStock}
+            value={itemState.width}
+            handler={handleWidth}
             itemState={itemState}
           />
           <FloatInput
             title="Height [in]"
-            value={itemState.stock}
-            handler={handleStock}
+            value={itemState.height}
+            handler={handleHeight}
             itemState={itemState}
           />
           <FloatInput
             title="Weight [lbs]"
-            value={itemState.stock}
-            handler={handleStock}
+            value={itemState.weight}
+            handler={handleWeight}
             itemState={itemState}
           />
         </div>

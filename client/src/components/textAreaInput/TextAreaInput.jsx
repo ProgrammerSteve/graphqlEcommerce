@@ -57,7 +57,7 @@ const HeaderComponent = ({
   return (
     <>
       <div className="bg-gray-800 h-[100%] grid place-items-center rounded-tl-lg rounded-bl-lg">
-        <label>{title}</label>
+        <label className="select-none text-sm">{title}</label>
       </div>
 
       {active ? (

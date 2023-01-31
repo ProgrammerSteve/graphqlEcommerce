@@ -10,6 +10,12 @@ export const GET_ITEMS = gql`
       alt
       stock
       description
+      length
+      width
+      height
+      weight
+      discontinued
+      category
     }
   }
 `;

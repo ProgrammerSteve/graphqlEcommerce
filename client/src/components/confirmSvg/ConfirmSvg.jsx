@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { UPDATE_ITEM } from "../../../utils/gqlQueries/mutations";
+import { GET_ITEMS } from "../../../utils/gqlQueries/queries";
 
 const ConfirmSvg = ({ itemState, toggleActive, newItem }) => {
   const [updateItem, { data, loading, error }] = useMutation(UPDATE_ITEM, {
@@ -12,27 +13,28 @@ const ConfirmSvg = ({ itemState, toggleActive, newItem }) => {
       alt: itemState.alt,
       stock: itemState.stock,
       description: itemState.description,
+      length: itemState.length,
+      width: itemState.width,
+      height: itemState.height,
+      weight: itemState.weight,
+      category: itemState.category,
+      discontinued: itemState.discontinued,
     },
+    refetchQueries: [{ query: GET_ITEMS }],
   });
 
   const handleUpdate = async () => {
-    console.log("svg Handler");
-    console.log(itemState);
+    console.log("Inputted itemState:", itemState);
     try {
       await updateItem();
     } catch (err) {
       console.log("trycatcherr:", err);
       console.log("error:", error);
     }
-
-    console.log("data:", data);
     toggleActive();
   };
 
   const handleNew = () => {
-    console.log("svg Handler");
-    console.log(itemState);
-    console.log("New Item Handler");
     toggleActive();
   };
 
