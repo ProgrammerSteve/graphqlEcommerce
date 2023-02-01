@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./app.css";
-import ItemContainer from "./components/itemContainer/ItemContainer.jsx";
-import Navbar from "./components/navbar/Navbar.jsx";
-import { useQuery } from "@apollo/client";
-import NewItemCard from "./components/newItemCard/NewItemCard.jsx";
-import ItemDisplay from "./components/itemDisplay/ItemDisplay.jsx";
 import { SORT_OPTIONS } from "../utils/filterSorting";
-import { GET_ITEMS } from "../utils/gqlQueries/queries";
-import SideMenu from "./components/sideMenu/SideMenu.jsx";
+import { useGetData } from "../utils/hooks/useGetData";
+
+import Navbar from "./components/navbar/Navbar.jsx";
+import NewItemCard from "./pages/newItemCard/NewItemCard.jsx";
+import ItemDisplay from "./pages/itemDisplay/ItemDisplay.jsx";
+import SideMenu from "./pages/sideMenu/SideMenu.jsx";
+import "./app.css";
 
 const PAGES = {
   SIDE_MENU: "SIDE_MENU",
@@ -16,7 +15,7 @@ const PAGES = {
 };
 
 const App = () => {
-  const { loading, error, data } = useQuery(GET_ITEMS);
+  const { loading, error, data } = useGetData();
   const [textSearch, setTextSearch] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
@@ -94,7 +93,7 @@ const App = () => {
   };
 
   return (
-    <ItemContainer>
+    <div className="h-screen bg-gray-600 shadow-lg p-1 xxs:p-2 xs:p-4 sm:p-6 md:p-8 flex flex-grow flex-col gap-1">
       <Navbar
         textSearch={textSearch}
         handleTextSearch={handleTextSearch}
@@ -109,7 +108,7 @@ const App = () => {
         handleSortOption={handleSortOption}
       />
       {PageComponent(page)}
-    </ItemContainer>
+    </div>
   );
 };
 

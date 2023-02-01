@@ -10,7 +10,7 @@
 ~~Add sorting feature, Aa, $~~
 Add error/validation for inputs
 Add a hamburger menu for mobile view
-Add sideMenu component for mobile view
+~~Add sideMenu component for mobile view~~
 set up flex-col for mobile view of itemCard and newItemCard
 
 Make ItemCard and NewItemCard responsive
@@ -24,3 +24,12 @@ Add seed script to set up database
 ## Tasks for a later date
 make queries for Cart/CartItem, User
 Work on Orders/OrderItem queries
+
+
+
+~~Organize inputs into separate folder~~
+~~Organize SVGs into separate folder~~
+~~organize pages components~~
+make newItem page responsive
+make individual page for edit item from newItem page
+Adjust display for itemDisplay

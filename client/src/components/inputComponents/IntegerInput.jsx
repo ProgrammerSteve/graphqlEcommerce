@@ -1,7 +1,13 @@
 import React from "react";
-import InputWrapper from "../inputWrapper/InputWrapper.jsx";
+import InputWrapper from "./InputWrapper.jsx";
 
-const TextInput = ({ title, value, handler, itemState, newItem = false }) => {
+const IntegerInput = ({
+  title,
+  value,
+  handler,
+  itemState,
+  newItem = false,
+}) => {
   return (
     <InputWrapper
       wrapperTitle={title}
@@ -10,8 +16,10 @@ const TextInput = ({ title, value, handler, itemState, newItem = false }) => {
       newItem={newItem}
     >
       <input
-        type="text"
+        type="number"
         value={value}
+        min="0"
+        step="1"
         onChange={handler}
         className="w-full h-full text-black pl-2 text-sm"
       />
@@ -19,4 +27,4 @@ const TextInput = ({ title, value, handler, itemState, newItem = false }) => {
   );
 };
 
-export default TextInput;
+export default IntegerInput;

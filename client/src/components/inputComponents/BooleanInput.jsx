@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import EditSvg from "../editSvg/EditSvg.jsx";
-import ConfirmSvg from "../confirmSvg/ConfirmSvg.jsx";
+import { EditSvg, ConfirmSvg } from "../svgComponents";
 
 const BooleanInput = ({
   title,

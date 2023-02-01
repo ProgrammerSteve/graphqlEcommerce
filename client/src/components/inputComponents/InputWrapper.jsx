@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import EditSvg from "../editSvg/EditSvg.jsx";
-import ConfirmSvg from "../confirmSvg/ConfirmSvg.jsx";
+import React, { useEffect, useState } from "react";
+import { EditSvg, ConfirmSvg } from "../svgComponents";
 
 const InputWrapper = ({ children, ...props }) => {
   const [active, setActive] = useState(false);
@@ -9,6 +8,7 @@ const InputWrapper = ({ children, ...props }) => {
   };
 
   const { wrapperTitle, wrapperValue, itemState, newItem = false } = props;
+
   return (
     <div className="bg-gray-800 text-gray-100 h-12 flex flex-grow w-full rounded-lg">
       <div className="h-full w-28 bg-gray-800 grid place-items-center px-4 rounded-tl-lg rounded-bl-lg">

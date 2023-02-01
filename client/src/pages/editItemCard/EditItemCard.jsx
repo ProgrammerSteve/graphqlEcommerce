@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import FloatInput from "../floatInput/FloatInput.jsx";
-import IntegerInput from "../integerInput/IntegerInput.jsx";
-import TextInput from "../textInput/TextInput.jsx";
-import TextAreaInput from "../textAreaInput/TextAreaInput.jsx";
-import PriceInput from "../priceInput/PriceInput.jsx";
-import BooleanInput from "../booleanInput/BooleanInput.jsx";
-import { useMutation, gql } from "@apollo/client";
+
+import {
+  PriceInput,
+  FloatInput,
+  IntegerInput,
+  TextInput,
+  TextAreaInput,
+  BooleanInput,
+} from "../../components/inputComponents";
+
+import { useMutation } from "@apollo/client";
 import { ADD_NEW_ITEM } from "../../../utils/gqlQueries/mutations.js";
 import { GET_ITEMS } from "../../../utils/gqlQueries/queries.js";
 
-const NewItemCard = ({ toggleNewItem }) => {
+const EditItemCard = ({ toggleNewItem }) => {
   const [itemState, setItem] = useState({
     id: "",
     name: "",
@@ -214,4 +218,4 @@ const NewItemCard = ({ toggleNewItem }) => {
   );
 };
 
-export default NewItemCard;
+export default EditItemCard;

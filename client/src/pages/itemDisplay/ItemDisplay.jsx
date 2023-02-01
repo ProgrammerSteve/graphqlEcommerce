@@ -1,5 +1,5 @@
 import React from "react";
-import ItemCard from "../itemCard/ItemCard.jsx";
+import ItemCard from "../../components/itemCard/ItemCard.jsx";
 import { processedData } from "../../../utils/filterSorting";
 
 const ItemDisplay = ({

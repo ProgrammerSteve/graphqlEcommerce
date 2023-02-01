@@ -1,5 +1,5 @@
 import React from "react";
-import InputWrapper from "../inputWrapper/InputWrapper.jsx";
+import InputWrapper from "./InputWrapper.jsx";
 
 const PriceInput = ({
   title,

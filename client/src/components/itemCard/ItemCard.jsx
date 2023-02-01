@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-import PriceInput from "../priceInput/PriceInput.jsx";
-import FloatInput from "../floatInput/FloatInput.jsx";
-import IntegerInput from "../integerInput/IntegerInput.jsx";
-import TextInput from "../textInput/TextInput.jsx";
-import TextAreaInput from "../textAreaInput/TextAreaInput.jsx";
-import BooleanInput from "../booleanInput/BooleanInput.jsx";
+import React, { useState, useEffect } from "react";
+
+import {
+  PriceInput,
+  FloatInput,
+  IntegerInput,
+  TextInput,
+  TextAreaInput,
+  BooleanInput,
+} from "../inputComponents";
 
 const ItemCard = ({ item }) => {
   const [itemState, setItem] = useState(item);
