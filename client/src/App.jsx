@@ -6,6 +6,7 @@ import ItemContainer from "./components/itemContainer/ItemContainer.jsx";
 import Navbar from "./components/navbar/Navbar.jsx";
 import { useQuery, gql } from "@apollo/client";
 import NewItemCard from "./components/newItemCard/NewItemCard.jsx";
+import { SORT_OPTIONS, processedData } from "../utils/filterSorting";
 
 import { GET_ITEMS } from "../utils/gqlQueries/queries";
 
@@ -29,6 +30,13 @@ const App = () => {
   const toggleNewItem = () => {
     setShowNewItem(!showNewItem);
   };
+  const [sortOption, setSortOption] = useState(
+    SORT_OPTIONS.ALPHABETICALLY_ACCENDING
+  );
+
+  const handleSortOption = (value) => {
+    setSortOption(value);
+  };
 
   useEffect(() => {
     console.log("data:", data);
@@ -44,6 +52,8 @@ const App = () => {
         maxPrice={maxPrice}
         handleMaxPrice={handleMaxPrice}
         toggleNewItem={toggleNewItem}
+        sortOption={sortOption}
+        handleSortOption={handleSortOption}
       />
 
       {showNewItem ? (
@@ -52,26 +62,10 @@ const App = () => {
         <div className="grow w-full overflow-y-scroll scrollbar-hide flex flex-col gap-4">
           {!loading &&
             !error &&
-            data.items
-              .filter((item) => {
-                if (textSearch !== "") {
-                  let name = `${item.name}`;
-                  return name.toLowerCase().includes(textSearch.toLowerCase());
-                } else {
-                  return true;
-                }
-              })
-              .filter((item) => {
-                let upperBool = true;
-                let lowerBool = true;
-                if (maxPrice !== 0) {
-                  upperBool = Number(item.price) <= maxPrice;
-                }
-                lowerBool = Number(item.price) >= minPrice;
-
-                return lowerBool && upperBool;
-              })
-              .map((item) => <ItemCard item={item} key={item.id} />)}
+            data &&
+            processedData(data, sortOption, textSearch, minPrice, maxPrice).map(
+              (item) => <ItemCard item={item} key={item.id} />
+            )}
         </div>
       )}
     </ItemContainer>
