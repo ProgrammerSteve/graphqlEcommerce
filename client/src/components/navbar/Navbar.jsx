@@ -32,7 +32,7 @@ const Navbar = ({
   showSideMenu,
 }) => {
   return (
-    <div className="h-32 bg-gray-800 shadow-lg p-8 flex items-center justify-between rounded-lg">
+    <div className="h-[120px] bg-gray-800 shadow-lg px-8 py-8 sm:py-8 flex items-center justify-between rounded-none sm:rounded-lg box-content">
       <NavTitle />
 
       <div className="hidden sm:flex gap-4 ">

@@ -1,5 +1,6 @@
 import React from "react";
 import ItemCard from "../../components/itemCard/ItemCard.jsx";
+import ItemPreview from "../../components/itemPreview/ItemPreview.jsx";
 import { processedData } from "../../../utils/filterSorting";
 
 const ItemDisplay = ({
@@ -12,12 +13,12 @@ const ItemDisplay = ({
   maxPrice,
 }) => {
   return (
-    <div className="grow w-full overflow-y-scroll scrollbar-hide flex flex-col gap-4">
+    <div className="grow w-full overflow-y-scroll px-2 xs:px-4 sm:px-0 scrollbar-hide grid grid-cols-1 sm:grid-cols-2 justify-center gap-3 sm:gap-2 md:gap-4">
       {!loading &&
         !error &&
         data &&
         processedData(data, sortOption, textSearch, minPrice, maxPrice).map(
-          (item) => <ItemCard item={item} key={item.id} />
+          (item) => <ItemPreview item={item} key={item.id} />
         )}
     </div>
   );

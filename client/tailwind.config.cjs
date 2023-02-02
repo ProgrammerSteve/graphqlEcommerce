@@ -10,6 +10,7 @@ module.exports = {
     screens: {
       xxs: "350px",
       xs: "500px",
+      mdlg: "900px",
       ...defaultTheme.screens,
     },
 
@@ -19,5 +20,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwind-scrollbar-hide")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("tailwind-scrollbar-hide"),
+  ],
 };
