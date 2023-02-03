@@ -20,7 +20,7 @@ const SideMenu = ({
   sortOption,
 }) => {
   return (
-    <div className="grow  box-context items-start justify-center grid grid-cols-1 sm:hidden  gap-4 bg-gray-900">
+    <div className="grow  box-context items-start justify-center grid grid-cols-1 md:hidden  gap-1 bg-gray-900">
       <TextFilter text={textSearch} handleText={handleTextSearch} />
 
       <AlphabetizeSort

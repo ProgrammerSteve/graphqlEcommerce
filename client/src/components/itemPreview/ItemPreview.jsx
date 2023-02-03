@@ -5,7 +5,7 @@ const ItemPreview = ({ item }) => {
   const [itemState, setItem] = useState(item);
 
   return (
-    <div className="box-content h-[600px] xxs:h-[600px] sm:h-[600px] md:h-[300px]  p-2 rounded-xl cardGlass shadow-lg flex flex-col xxs:flex-col xs:flex-col sm:flex-col md:flex-row flex-grow gap-2">
+    <div className="box-content h-[600px] xxs:h-[600px] sm:h-[600px] md:h-[300px]  p-2 rounded-none md:rounded-xl cardGlass shadow-lg flex flex-col xxs:flex-col xs:flex-col sm:flex-col md:flex-row flex-grow gap-2">
       <div className="w-[200px] h-[300px] rounded-xl bg-gray-700 mx-auto">
         <img
           src={item.src}
@@ -70,7 +70,9 @@ const TextAreaDisplay = ({ value, title }) => {
       </div>
 
       <div className="">
-        <p className="line-clamp-5">{value}</p>
+        <p className="line-clamp-5 md:line-clamp-4 mdlg:line-clamp-5">
+          {value}
+        </p>
       </div>
     </div>
   );

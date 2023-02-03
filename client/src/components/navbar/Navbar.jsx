@@ -11,7 +11,7 @@ import {
 const NavTitle = () => {
   return (
     <div>
-      <h1 className="h-[100px] grid place-items-center text-sm xxs:text-base  xs:text-lg sm:text-xl md:text-2xl font-semibold text-white">
+      <h1 className="h-[100px] w-[200px] md:w-[100px] mdlg:w-[130px] lg:w-[160px] 2xl:w-[200px] grid place-items-center text-xl md:text-lg mdlg:text-xl lg:text-2xl xl:text-3xl font-semibold text-white">
         Ecommerce CMS
       </h1>
     </div>
@@ -32,10 +32,10 @@ const Navbar = ({
   showSideMenu,
 }) => {
   return (
-    <div className="box-content h-[120px] bg-gray-800 shadow-lg px-8 sm:py-[32px] flex items-center justify-between rounded-none sm:rounded-lg ">
+    <div className="box-content h-[120px] bg-gray-800 shadow-lg px-8 md:px-2 mdlg:px-4 lg:px-6 xl:px-8 sm:py-[32px] flex items-center justify-between rounded-none sm:rounded-lg ">
       <NavTitle />
 
-      <div className="hidden sm:flex gap-4 ">
+      <div className="hidden md:flex gap-2 mdlg:gap-3 lg:gap-4 ">
         <AlphabetizeSort
           handleSortOption={handleSortOption}
           sortOption={sortOption}

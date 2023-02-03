@@ -3,7 +3,7 @@ import React from "react";
 const HamburgerMenu = ({ toggleSideMenu, showSideMenu }) => {
   return (
     <div
-      className="h-[100px]  w-auto box-content grid sm:hidden place-items-center "
+      className="h-[100px]  w-auto box-content grid md:hidden place-items-center "
       onClick={toggleSideMenu}
     >
       {showSideMenu ? (
