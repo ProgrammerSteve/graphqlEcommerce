@@ -84,7 +84,6 @@ const App = () => {
         maxPrice={maxPrice}
         handleMaxPrice={handleMaxPrice}
         toggleNewItem={toggleNewItem}
-        toggleSideMenu={toggleSideMenu}
         sortOption={sortOption}
         handleSortOption={handleSortOption}
       />
@@ -93,7 +92,7 @@ const App = () => {
   };
 
   return (
-    <div className="h-screen bg-gray-600 shadow-lg p-0 sm:p-6 md:p-8 flex flex-grow flex-col gap-1">
+    <div className="h-screen bg-gray-600 shadow-lg p-0 sm:p-6 md:p-8 scrollbar-hide flex flex-grow flex-col gap-0 sm:gap-1">
       <Navbar
         textSearch={textSearch}
         handleTextSearch={handleTextSearch}

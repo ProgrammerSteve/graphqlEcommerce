@@ -11,7 +11,7 @@ import {
 const NavTitle = () => {
   return (
     <div>
-      <h1 className="text-sm xxs:text-base  xs:text-lg sm:text-xl md:text-2xl font-semibold text-white">
+      <h1 className="h-[100px] grid place-items-center text-sm xxs:text-base  xs:text-lg sm:text-xl md:text-2xl font-semibold text-white">
         Ecommerce CMS
       </h1>
     </div>
@@ -32,7 +32,7 @@ const Navbar = ({
   showSideMenu,
 }) => {
   return (
-    <div className="h-[120px] bg-gray-800 shadow-lg px-8 py-8 sm:py-8 flex items-center justify-between rounded-none sm:rounded-lg box-content">
+    <div className="box-content h-[120px] bg-gray-800 shadow-lg px-8 sm:py-[32px] flex items-center justify-between rounded-none sm:rounded-lg ">
       <NavTitle />
 
       <div className="hidden sm:flex gap-4 ">
