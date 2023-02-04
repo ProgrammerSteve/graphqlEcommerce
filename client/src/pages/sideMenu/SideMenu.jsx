@@ -5,7 +5,6 @@ import {
   PriceFilter,
   AddItemButton,
   TextFilter,
-  HamburgerMenu,
 } from "../../components/navBarComponents";
 
 const SideMenu = ({

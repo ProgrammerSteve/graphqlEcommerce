@@ -52,8 +52,8 @@ const InputWrapper = ({ children, ...props }) => {
   const { wrapperTitle, wrapperValue, itemState, newItem = false } = props;
   return (
     <div className="bg-gray-800 text-gray-100 h-12 flex flex-grow w-full rounded-lg">
-      <div className="h-full w-28 bg-gray-800 grid place-items-center px-4 rounded-tl-lg rounded-bl-lg">
-        <label className="text-sm select-none">{wrapperTitle}</label>
+      <div className="h-full w-14 sm:w-16 md:w-20 mdlg:w-24 lg:w-28 bg-gray-800 grid place-items-center px-2 mdlg:px-4  rounded-tl-lg rounded-bl-lg">
+        <label className="text-xs md:text-sm select-none">{wrapperTitle}</label>
       </div>
 
       <div className="grow h-full bg-gray-500">
