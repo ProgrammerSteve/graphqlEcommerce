@@ -13,19 +13,19 @@ import {
 const NewItemHeader = ({ toggleNewItem, handler }) => {
   return (
     <div className="flex justify-between">
-      <h1 className="bg-gray-800 text-white text-lg rounded-xl h-16 px-3 py-3 grid place-items-center">
+      <h1 className="bg-gray-800 text-white text-xs xxs:text-sm xs:text-base rounded-xl px-1 xxs:px-3 py-3 grid place-items-center">
         New Item Details:
       </h1>
 
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-1 xxs:gap-2 xs:gap-3 items-center">
         <div
-          className="border-gray-800 border-solid border-2 font-bold text-gray-800 hover:bg-gray-500 box-content  text-center py-3 px-3 rounded-xl cursor-pointer select-none"
+          className="border-gray-800 border-solid border-2 font-normal xxs:font-semibold xs:font-bold text-gray-800 hover:bg-gray-500 box-content text-small xxs:text-xs xs:text-base text-center py-1 xxs:py-3 px-1 xxs:px-3 rounded-xl cursor-pointer select-none"
           onClick={toggleNewItem}
         >
           Cancel
         </div>
         <div
-          className="bg-gray-800 hover:bg-gray-700 box-content font-bold  text-white text-center py-3 px-3 rounded-xl cursor-pointer select-none"
+          className="bg-gray-800 hover:bg-gray-700 box-content font-normal xxs:font-semibold xs:font-bold  text-white text-small xxs:text-xs xs:text-base text-center py-1 xxs:py-3 px-1 xxs:px-3 rounded-xl cursor-pointer select-none"
           onClick={handler}
         >
           Add Item
@@ -85,7 +85,7 @@ const ItemDetails = ({
           newItem={true}
         />
         <BooleanInput
-          title={"Discontined"}
+          title={"Suspend"}
           value={itemState.discontinued}
           handleTrue={handleDiscontinuedTrue}
           handleFalse={handleDiscontinuedFalse}
@@ -201,7 +201,7 @@ const NewItemCard = ({ toggleNewItem }) => {
     <div className="p-2 rounded-xl bg-gray-300 shadow-lg box-content grow flex flex-col gap-4">
       <NewItemHeader toggleNewItem={toggleNewItem} handler={handler} />
 
-      <div className="flex w-[100%] gap-2">
+      <div className="flex justify-center md:justify-start w-[100%] gap-2">
         <div className="w-[200px] h-[300px] rounded-xl bg-gray-700">
           <img
             src={itemState.src}
