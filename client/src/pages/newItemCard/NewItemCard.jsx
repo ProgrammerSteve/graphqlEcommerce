@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useCreateItem } from "../../../utils/hooks/useCreateItem.js";
 
 import {
@@ -18,12 +19,12 @@ const NewItemHeader = ({ toggleNewItem, handler }) => {
       </h1>
 
       <div className="flex gap-1 xxs:gap-2 xs:gap-3 items-center">
-        <div
-          className="border-gray-800 border-solid border-2 font-normal xxs:font-semibold xs:font-bold text-gray-800 hover:bg-gray-500 box-content text-small xxs:text-xs xs:text-base text-center py-1 xxs:py-3 px-1 xxs:px-3 rounded-xl cursor-pointer select-none"
-          onClick={toggleNewItem}
+        <Link
+          to="/"
+          className="block border-gray-800 border-solid border-2 font-normal xxs:font-semibold xs:font-bold text-gray-800 hover:bg-gray-500 box-content text-small xxs:text-xs xs:text-base text-center py-1 xxs:py-3 px-1 xxs:px-3 rounded-xl cursor-pointer select-none"
         >
           Cancel
-        </div>
+        </Link>
         <div
           className="bg-gray-800 hover:bg-gray-700 box-content font-normal xxs:font-semibold xs:font-bold  text-white text-small xxs:text-xs xs:text-base text-center py-1 xxs:py-3 px-1 xxs:px-3 rounded-xl cursor-pointer select-none"
           onClick={handler}
@@ -149,6 +150,10 @@ const ItemDimensions = ({
 };
 
 const NewItemCard = ({ toggleNewItem }) => {
+  useEffect(() => {
+    console.log("new Item page");
+  }, []);
+
   const [itemState, setItem] = useState({
     id: "",
     name: "",

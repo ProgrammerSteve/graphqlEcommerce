@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { SORT_OPTIONS } from "../utils/filterSorting";
 import { useGetData } from "../utils/hooks/useGetData";
+import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar/Navbar.jsx";
 import NewItemCard from "./pages/newItemCard/NewItemCard.jsx";
@@ -106,7 +107,32 @@ const App = () => {
         sortOption={sortOption}
         handleSortOption={handleSortOption}
       />
-      {PageComponent(page)}
+      <Routes>
+        <Route
+          index
+          path="/"
+          element={
+            <ItemDisplay
+              loading={loading}
+              error={error}
+              data={data}
+              sortOption={sortOption}
+              textSearch={textSearch}
+              minPrice={minPrice}
+              maxPrice={maxPrice}
+            />
+          }
+        />
+
+        <Route
+          path="/item/:itemid"
+          element={<NewItemCard toggleNewItem={toggleNewItem} />}
+        />
+        <Route
+          path="/newitem"
+          element={<NewItemCard toggleNewItem={toggleNewItem} />}
+        />
+      </Routes>
     </div>
   );
 };

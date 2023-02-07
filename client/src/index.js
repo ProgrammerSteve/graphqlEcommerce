@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-
+import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import {
   ApolloClient,
@@ -17,7 +17,9 @@ const client = new ApolloClient({
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>
+  <BrowserRouter>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </BrowserRouter>
 );
