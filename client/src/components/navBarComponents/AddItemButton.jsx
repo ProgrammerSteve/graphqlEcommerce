@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AddItemButton = ({ toggleNewItem }) => {
+const AddItemButton = () => {
   return (
     <Link
       to="newitem"

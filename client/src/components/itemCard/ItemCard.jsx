@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import ItemDetails from "./ItemDetails.jsx";
+import ItemDimensions from "./ItemDimensions.jsx";
+import { TextAreaInput } from "../inputComponents";
 
-import {
-  PriceInput,
-  FloatInput,
-  IntegerInput,
-  TextInput,
-  TextAreaInput,
-  BooleanInput,
-} from "../inputComponents";
-
-const ItemCard = ({ item }) => {
+const ItemCard = ({ item, newItem = false }) => {
   const [itemState, setItem] = useState(item);
+
   const handleName = ({ target: { value } }) =>
     setItem({ ...itemState, name: value });
   const handleStock = ({ target: { value } }) =>
@@ -31,111 +26,99 @@ const ItemCard = ({ item }) => {
     setItem({ ...itemState, height: Number(value) });
   const handleWeight = ({ target: { value } }) =>
     setItem({ ...itemState, weight: Number(value) });
+  const handleCategory = ({ target: { value } }) =>
+    setItem({ ...itemState, category: `${value}`.toLowerCase() });
   const handleDiscontinuedTrue = () =>
     setItem({ ...itemState, discontinued: true });
   const handleDiscontinuedFalse = () =>
     setItem({ ...itemState, discontinued: false });
-  const handleCategory = ({ target: { value } }) =>
-    setItem({ ...itemState, category: `${value}`.toLowerCase() });
 
   return (
-    <div className="h-[300px] max-h-[300px] p-2 rounded-xl bg-gray-300 shadow-lg box-content flex flex-grow gap-2">
-      <div className="w-[200px] h-[300px] rounded-xl bg-gray-700">
-        <img
-          src={item.src}
-          alt={item.alt}
-          className="w-[200px] h-full box-border"
-        />
-      </div>
+    <>
+      <div className="flex justify-center md:justify-start w-[100%] gap-2">
+        <div className="w-[200px] h-[300px] rounded-xl bg-gray-700">
+          <img
+            src={itemState.src}
+            alt={itemState.alt}
+            className="w-[200px] h-full box-border"
+          />
+        </div>
 
-      <div className="grow h-[300px] flex gap-2 box-border">
-        <div className="w-[50%] h-full flex flex-col">
-          <div className="grid grid-cols-2 gap-3">
-            <TextInput
-              title={"Name"}
-              value={itemState.name}
-              handler={handleName}
+        <div className="grow h-[300px] hidden md:grid md:grid-cols-4 gap-2 box-border">
+          <div className="col-span-4 lg:col-span-2 h-full hidden md:flex md:flex-col">
+            <ItemDetails
               itemState={itemState}
-            />
-            <TextInput
-              title={"Alt"}
-              value={itemState.alt}
-              handler={handleAlt}
-              itemState={itemState}
-            />
-            <IntegerInput
-              title={"Stock"}
-              value={itemState.stock}
-              handler={handleStock}
-              itemState={itemState}
-            />
-            <PriceInput
-              title={"Price"}
-              price={itemState.price}
+              handleName={handleName}
+              handleAlt={handleAlt}
+              handleStock={handleStock}
               handlePrice={handlePrice}
-              itemState={itemState}
-            />
-            <TextInput
-              title={"Category"}
-              value={itemState.category}
-              handler={handleCategory}
-              itemState={itemState}
-            />
-            <BooleanInput
-              title={"Discontined"}
-              value={itemState.discontinued}
-              handleTrue={handleDiscontinuedTrue}
-              handleFalse={handleDiscontinuedFalse}
-              itemState={itemState}
+              handleCategory={handleCategory}
+              handleDiscontinuedFalse={handleDiscontinuedFalse}
+              handleDiscontinuedTrue={handleDiscontinuedTrue}
+              handleSrc={handleSrc}
+              newItem={newItem}
             />
           </div>
-          <div className="pt-2 grow  ">
+
+          <div className="col-span-1 h-[300px] box-border gap-2 hidden lg:flex lg:flex-col justify-between">
+            <ItemDimensions
+              itemState={itemState}
+              handleLength={handleLength}
+              handleWeight={handleWeight}
+              handleWidth={handleWidth}
+              newItem={newItem}
+            />
+          </div>
+
+          <div className="col-span-1 h-[300px] hidden lg:block">
             <TextAreaInput
-              title="Src"
-              value={itemState.src}
-              handler={handleSrc}
+              title="Description Text"
+              value={itemState.description}
+              handler={handleDescription}
               itemState={itemState}
+              newItem={newItem}
             />
           </div>
         </div>
-
-        <div className="w-[25%] h-[300px] box-border gap-2 flex flex-col justify-between">
-          <FloatInput
-            title="Length [in]"
-            value={itemState.length}
-            handler={handleLength}
+      </div>
+      <div className="grid grid-cols-2 gap-2 lg:hidden">
+        <div className="col-span-2 h-[600px] xxs:h-[300px] flex flex-col md:hidden">
+          <ItemDetails
             itemState={itemState}
-          />
-          <FloatInput
-            title="Width [in]"
-            value={itemState.width}
-            handler={handleWidth}
-            itemState={itemState}
-          />
-          <FloatInput
-            title="Height [in]"
-            value={itemState.height}
-            handler={handleHeight}
-            itemState={itemState}
-          />
-          <FloatInput
-            title="Weight [lbs]"
-            value={itemState.weight}
-            handler={handleWeight}
-            itemState={itemState}
+            handleName={handleName}
+            handleAlt={handleAlt}
+            handleStock={handleStock}
+            handlePrice={handlePrice}
+            handleCategory={handleCategory}
+            handleDiscontinuedFalse={handleDiscontinuedFalse}
+            handleDiscontinuedTrue={handleDiscontinuedTrue}
+            handleSrc={handleSrc}
+            newItem={newItem}
           />
         </div>
 
-        <div className="w-[25%] h-[300px]">
+        <div className="col-span-2 xxs:col-span-1 h-[300px] box-border gap-2 flex flex-col justify-between">
+          <ItemDimensions
+            itemState={itemState}
+            handleLength={handleLength}
+            handleWeight={handleWeight}
+            handleWidth={handleWidth}
+            handleHeight={handleHeight}
+            newItem={newItem}
+          />
+        </div>
+
+        <div className="col-span-2 xxs:col-span-1 h-[300px]">
           <TextAreaInput
             title="Description Text"
             value={itemState.description}
             handler={handleDescription}
             itemState={itemState}
+            newItem={newItem}
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

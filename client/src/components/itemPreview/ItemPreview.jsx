@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../../app.css";
 
 const ItemPreview = ({ item }) => {
   const [itemState, setItem] = useState(item);
 
   return (
-    <div className="box-content h-[600px] xxs:h-[600px] sm:h-[600px] md:h-[300px]  p-2 rounded-none md:rounded-xl cardGlass shadow-lg flex flex-col xxs:flex-col xs:flex-col sm:flex-col md:flex-row flex-grow gap-2">
+    <Link
+      to={`/item/${item.id}`}
+      className="box-content h-[600px] xxs:h-[600px] sm:h-[600px] md:h-[300px]  p-2 rounded-none md:rounded-xl cardGlass shadow-lg flex flex-col xxs:flex-col xs:flex-col sm:flex-col md:flex-row flex-grow gap-2"
+    >
       <div className="w-[200px] h-[300px] rounded-xl bg-gray-700 mx-auto">
         <img
           src={item.src}
@@ -34,7 +38,7 @@ const ItemPreview = ({ item }) => {
           />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

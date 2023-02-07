@@ -8,13 +8,15 @@ import {
   HamburgerMenu,
 } from "../navBarComponents";
 
+import { Link } from "react-router-dom";
+
 const NavTitle = () => {
   return (
-    <div>
+    <Link to="/">
       <h1 className="h-[100px] w-[200px] md:w-[100px] mdlg:w-[130px] lg:w-[160px] 2xl:w-[200px] grid place-items-center text-xl md:text-lg mdlg:text-xl lg:text-2xl xl:text-3xl font-semibold text-white">
         Ecommerce CMS
       </h1>
-    </div>
+    </Link>
   );
 };
 
@@ -25,7 +27,6 @@ const Navbar = ({
   handleMinPrice,
   maxPrice,
   handleMaxPrice,
-  toggleNewItem,
   toggleSideMenu,
   handleSortOption,
   sortOption,
@@ -44,7 +45,7 @@ const Navbar = ({
           handleSortOption={handleSortOption}
           sortOption={sortOption}
         />
-        <AddItemButton toggleNewItem={toggleNewItem} />
+        <AddItemButton />
         <TextFilter text={textSearch} handleText={handleTextSearch} />
         <PriceFilter
           min={minPrice}

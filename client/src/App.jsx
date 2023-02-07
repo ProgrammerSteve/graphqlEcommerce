@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { SORT_OPTIONS } from "../utils/filterSorting";
 import { useGetData } from "../utils/hooks/useGetData";
 import { Routes, Route } from "react-router-dom";
@@ -9,18 +9,11 @@ import ItemDisplay from "./pages/itemDisplay/ItemDisplay.jsx";
 import SideMenu from "./pages/sideMenu/SideMenu.jsx";
 import "./app.css";
 
-const PAGES = {
-  SIDE_MENU: "SIDE_MENU",
-  ITEMS_DISPLAY: "ITEMS_DISPLAY",
-  NEW_ITEM: "NEW_ITEM",
-};
-
 const App = () => {
   const { loading, error, data } = useGetData();
   const [textSearch, setTextSearch] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
-  const [showNewItem, setShowNewItem] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [sortOption, setSortOption] = useState(
     SORT_OPTIONS.ALPHABETICALLY_ACCENDING
@@ -38,45 +31,13 @@ const App = () => {
     setSortOption(value);
   };
 
-  const [page, setPage] = useState(PAGES.ITEMS_DISPLAY);
-  const toggleNewItem = () => {
-    setShowNewItem(!showNewItem);
-  };
   const toggleSideMenu = () => {
     console.log("showSideMenu toggled");
     setShowSideMenu(!showSideMenu);
   };
 
-  useEffect(() => {
-    const updatePage = () => {
-      if (showSideMenu) {
-        setPage(PAGES.SIDE_MENU);
-        return;
-      }
-      if (showNewItem) {
-        setPage(PAGES.NEW_ITEM);
-      } else {
-        setPage(PAGES.ITEMS_DISPLAY);
-      }
-    };
-    updatePage();
-  }, [showNewItem, showSideMenu]);
-
-  const PageComponent = (prop) => {
-    let component = {};
-    component[PAGES.NEW_ITEM] = <NewItemCard toggleNewItem={toggleNewItem} />;
-    component[PAGES.ITEMS_DISPLAY] = (
-      <ItemDisplay
-        loading={loading}
-        error={error}
-        data={data}
-        sortOption={sortOption}
-        textSearch={textSearch}
-        minPrice={minPrice}
-        maxPrice={maxPrice}
-      />
-    );
-    component[PAGES.SIDE_MENU] = (
+  const AppendSideMenu = ({ showSideMenu, children }) => {
+    return showSideMenu ? (
       <SideMenu
         textSearch={textSearch}
         handleTextSearch={handleTextSearch}
@@ -84,12 +45,12 @@ const App = () => {
         handleMinPrice={handleMinPrice}
         maxPrice={maxPrice}
         handleMaxPrice={handleMaxPrice}
-        toggleNewItem={toggleNewItem}
-        sortOption={sortOption}
         handleSortOption={handleSortOption}
+        sortOption={sortOption}
       />
+    ) : (
+      children
     );
-    return component[prop];
   };
 
   return (
@@ -101,7 +62,6 @@ const App = () => {
         handleMinPrice={handleMinPrice}
         maxPrice={maxPrice}
         handleMaxPrice={handleMaxPrice}
-        toggleNewItem={toggleNewItem}
         toggleSideMenu={toggleSideMenu}
         showSideMenu={showSideMenu}
         sortOption={sortOption}
@@ -112,25 +72,34 @@ const App = () => {
           index
           path="/"
           element={
-            <ItemDisplay
-              loading={loading}
-              error={error}
-              data={data}
-              sortOption={sortOption}
-              textSearch={textSearch}
-              minPrice={minPrice}
-              maxPrice={maxPrice}
-            />
+            <AppendSideMenu showSideMenu={showSideMenu}>
+              <ItemDisplay
+                loading={loading}
+                error={error}
+                data={data}
+                sortOption={sortOption}
+                textSearch={textSearch}
+                minPrice={minPrice}
+                maxPrice={maxPrice}
+              />
+            </AppendSideMenu>
           }
         />
-
         <Route
           path="/item/:itemid"
-          element={<NewItemCard toggleNewItem={toggleNewItem} />}
+          element={
+            <AppendSideMenu showSideMenu={showSideMenu}>
+              <NewItemCard />
+            </AppendSideMenu>
+          }
         />
         <Route
           path="/newitem"
-          element={<NewItemCard toggleNewItem={toggleNewItem} />}
+          element={
+            <AppendSideMenu showSideMenu={showSideMenu}>
+              <NewItemCard />
+            </AppendSideMenu>
+          }
         />
       </Routes>
     </div>

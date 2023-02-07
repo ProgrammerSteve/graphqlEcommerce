@@ -1,7 +1,7 @@
 type Query {
   items: [Item]
-  itemById: Item
-  itemsByPrice: [Item]
+  itemById(id: ID!): Item
+  itemsByPrice(min: Float!, max: Float!): [Item]
 }
 
 type Mutation {

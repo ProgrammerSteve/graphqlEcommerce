@@ -14,7 +14,6 @@ const SideMenu = ({
   handleMinPrice,
   maxPrice,
   handleMaxPrice,
-  toggleNewItem,
   handleSortOption,
   sortOption,
 }) => {
@@ -27,7 +26,7 @@ const SideMenu = ({
         sortOption={sortOption}
       />
       <PriceSort handleSortOption={handleSortOption} sortOption={sortOption} />
-      <AddItemButton toggleNewItem={toggleNewItem} />
+      <AddItemButton />
 
       <PriceFilter
         min={minPrice}
