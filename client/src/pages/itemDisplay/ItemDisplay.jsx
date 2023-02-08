@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import ItemCard from "../../components/itemCard/ItemCard.jsx";
+import React from "react";
 import ItemPreview from "../../components/itemPreview/ItemPreview.jsx";
 import { processedData } from "../../../utils/filterSorting";
 

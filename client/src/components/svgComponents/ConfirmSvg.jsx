@@ -3,6 +3,7 @@ import { useUpdateItem } from "../../../utils/hooks/useUpdateItem.js";
 
 const ConfirmSvg = ({ itemState, toggleActive, newItem }) => {
   const [handleUpdate] = useUpdateItem(itemState);
+
   const handler = async (newItem) => {
     if (!newItem) await handleUpdate();
     toggleActive();

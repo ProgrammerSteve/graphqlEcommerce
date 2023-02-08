@@ -18,7 +18,7 @@ export const useGetItemById = (id) => {
     });
   };
   useEffect(() => {
-    handleState(data);
+    handleState(data?.itemById);
   }, [data]);
 
   return { loading, itemState, dispatch };
