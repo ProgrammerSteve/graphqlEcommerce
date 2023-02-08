@@ -3,7 +3,7 @@ import ItemDetails from "./ItemDetails.jsx";
 import ItemDimensions from "./ItemDimensions.jsx";
 import { TextAreaInput } from "../inputComponents";
 
-const ItemCard = ({ item, newItem = false }) => {
+const ItemCard = ({ item, dispatch, newItem = false }) => {
   const [itemState, setItem] = useState(item);
 
   const handleName = ({ target: { value } }) =>

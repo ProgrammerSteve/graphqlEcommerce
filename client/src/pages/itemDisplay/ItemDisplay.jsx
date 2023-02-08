@@ -12,9 +12,6 @@ const ItemDisplay = ({
   minPrice,
   maxPrice,
 }) => {
-  useEffect(() => {
-    console.log("Item display page");
-  }, []);
   return (
     <div className="box-content grow overflow-y-scroll scrollbar-hide grid grid-cols-1 sm:grid-cols-2 justify-center gap-3 sm:gap-2 md:gap-4">
       {!loading &&

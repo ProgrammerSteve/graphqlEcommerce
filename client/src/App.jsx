@@ -7,6 +7,7 @@ import Navbar from "./components/navbar/Navbar.jsx";
 import NewItemCard from "./pages/newItemCard/NewItemCard.jsx";
 import ItemDisplay from "./pages/itemDisplay/ItemDisplay.jsx";
 import SideMenu from "./pages/sideMenu/SideMenu.jsx";
+import EditItemCard from "./pages/editItemCard/EditItemCard.jsx";
 import "./app.css";
 
 const App = () => {
@@ -86,10 +87,10 @@ const App = () => {
           }
         />
         <Route
-          path="/item/:itemid"
+          path="/item/:itemId"
           element={
             <AppendSideMenu showSideMenu={showSideMenu}>
-              <NewItemCard />
+              <EditItemCard />
             </AppendSideMenu>
           }
         />

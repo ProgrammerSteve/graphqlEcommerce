@@ -8,10 +8,13 @@ const PriceInput = ({
   itemState,
   newItem = false,
 }) => {
-  let priceString = price.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
+  let priceString =
+    price !== undefined
+      ? price.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        })
+      : "$0.00";
   return (
     <InputWrapper
       wrapperTitle={title}
