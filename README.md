@@ -9,12 +9,13 @@
 
 ~~Add sorting feature, Aa, $~~
 Add error/validation for inputs
-Add a hamburger menu for mobile view
+~~Add a hamburger menu for mobile view~~
 ~~Add sideMenu component for mobile view~~
-set up flex-col for mobile view of itemCard and newItemCard
+~~set up flex-col for mobile view of itemCard and newItemCard~~
 
-Make ItemCard and NewItemCard responsive
-Add dockerfile and upload to dockerhub
+~~Make ItemCard and NewItemCard responsive~~
+~~Add dockerfile~~ 
+upload to dockerhub
 
 Connect to prisma database
 Add prisma schema

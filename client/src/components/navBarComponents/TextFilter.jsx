@@ -2,7 +2,7 @@ import React from "react";
 
 const TextFilter = ({ text, handleText }) => {
   return (
-    <div className="bg-gray-800 px-2 lg:px-3 xl:px-4 grid items-center py-4 rounded-lg border-solid border-2 border-gray-600">
+    <div className="bg-gray-800 px-2 lg:px-3 xl:px-4 grid items-center py-2 md:py-4 rounded-lg border-solid border-2 border-gray-600">
       <h2 className="text-white block select-none">Search</h2>
 
       <input

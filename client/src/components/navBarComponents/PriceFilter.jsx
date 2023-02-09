@@ -2,7 +2,7 @@ import React from "react";
 
 const PriceFilter = ({ min, max, handleMin, handleMax }) => {
   return (
-    <div className="bg-gray-800 px-2 lg:px-3 xl:px-4 py-4 rounded-lg  border-solid border-2 border-gray-600">
+    <div className="bg-gray-800 px-2 lg:px-3 xl:px-4 py-2 md:py-4  rounded-lg  border-solid border-2 border-gray-600">
       <h2 className="text-white block select-none">Price</h2>
 
       <div className="grid grid-cols-2 gap-4 md:gap-2 mdlg:gap-4">

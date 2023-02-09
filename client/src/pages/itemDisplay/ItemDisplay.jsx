@@ -12,7 +12,7 @@ const ItemDisplay = ({
   maxPrice,
 }) => {
   return (
-    <div className="box-content grow overflow-y-scroll scrollbar-hide grid grid-cols-1 sm:grid-cols-2 justify-center gap-3 sm:gap-2 md:gap-4">
+    <div className="box-content w-full grow overflow-y-scroll scrollbar-hide grid grid-cols-1 sm:grid-cols-2 justify-center gap-3 sm:gap-2 md:gap-4">
       {!loading &&
         !error &&
         data &&

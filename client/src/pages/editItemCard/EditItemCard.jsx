@@ -9,7 +9,7 @@ const EditItemCard = () => {
   const { loading, itemState, dispatch } = useGetItemById(itemId);
 
   return (
-    <div className="p-2 rounded-xl bg-gray-300 shadow-lg box-content grow flex flex-col gap-4">
+    <div className="p-2 rounded-xl bg-gray-300 shadow-lg box-content  overflow-y-scroll scrollbar-hide  flex flex-col gap-4 grow ">
       {!loading && itemState && (
         <ItemCard itemState={itemState} handlers={handlers(dispatch)} />
       )}

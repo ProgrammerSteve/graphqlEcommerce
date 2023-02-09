@@ -17,7 +17,7 @@ const DollarSign = () => {
 
 const PriceSort = ({ handleSortOption, sortOption }) => {
   return (
-    <div className="bg-gray-800 px-2 lg:px-3 xl:px-4  py-4 rounded-lg border-solid border-2 border-gray-600 cursor-pointer  grid place-items-center">
+    <div className="bg-gray-800 px-2 lg:px-3 xl:px-4  py-2 md:py-4  rounded-lg border-solid border-2 border-gray-600 cursor-pointer  grid place-items-center">
       <div className="flex justify-between gap-2 px-2">
         <div className="text-white grid w-4 place-items-center select-none scale-100 md:scale-[80%] mdlg:scale-90 lg:scale-100">
           <DollarSign />

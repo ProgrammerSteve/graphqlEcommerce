@@ -7,6 +7,8 @@ import {
   TextFilter,
 } from "../../components/navBarComponents";
 
+import { CloseSvg } from "../../components/svgComponents";
+
 const SideMenu = ({
   textSearch,
   handleTextSearch,
@@ -16,9 +18,12 @@ const SideMenu = ({
   handleMaxPrice,
   handleSortOption,
   sortOption,
+  toggleSideMenu,
 }) => {
   return (
-    <div className="grow  box-context items-start justify-center grid grid-cols-1 md:hidden  gap-1 bg-gray-900">
+    <div className="h-screen w-min-[280px] w-1/2 z-50 absolute right-0 box-context justify-center items-start grid grid-cols-1 md:hidden  gap-1 bg-gray-900">
+      <CloseSvg toggleSideMenu={toggleSideMenu} />
+
       <TextFilter text={textSearch} handleText={handleTextSearch} />
 
       <AlphabetizeSort

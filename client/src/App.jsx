@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SORT_OPTIONS } from "../utils/filterSorting";
 import { useGetData } from "../utils/hooks/useGetData";
 import { Routes, Route } from "react-router-dom";
@@ -33,47 +33,45 @@ const App = () => {
   };
 
   const toggleSideMenu = () => {
-    console.log("showSideMenu toggled");
     setShowSideMenu(!showSideMenu);
   };
-
-  const AppendSideMenu = ({ showSideMenu, children }) => {
-    return showSideMenu ? (
-      <SideMenu
-        textSearch={textSearch}
-        handleTextSearch={handleTextSearch}
-        minPrice={minPrice}
-        handleMinPrice={handleMinPrice}
-        maxPrice={maxPrice}
-        handleMaxPrice={handleMaxPrice}
-        handleSortOption={handleSortOption}
-        sortOption={sortOption}
-      />
-    ) : (
-      children
-    );
-  };
+  useEffect(() => {
+    console.log("showSideMenu:", showSideMenu);
+  }, [showSideMenu]);
 
   return (
-    <div className="h-screen bg-gray-600 shadow-lg p-0 sm:p-6 md:p-4 mdlg:p-6 lg:p-8 scrollbar-hide flex flex-grow flex-col gap-0 sm:gap-1">
-      <Navbar
-        textSearch={textSearch}
-        handleTextSearch={handleTextSearch}
-        minPrice={minPrice}
-        handleMinPrice={handleMinPrice}
-        maxPrice={maxPrice}
-        handleMaxPrice={handleMaxPrice}
-        toggleSideMenu={toggleSideMenu}
-        showSideMenu={showSideMenu}
-        sortOption={sortOption}
-        handleSortOption={handleSortOption}
-      />
-      <Routes>
-        <Route
-          index
-          path="/"
-          element={
-            <AppendSideMenu showSideMenu={showSideMenu}>
+    <>
+      {showSideMenu && (
+        <SideMenu
+          toggleSideMenu={toggleSideMenu}
+          textSearch={textSearch}
+          handleTextSearch={handleTextSearch}
+          minPrice={minPrice}
+          handleMinPrice={handleMinPrice}
+          maxPrice={maxPrice}
+          handleMaxPrice={handleMaxPrice}
+          handleSortOption={handleSortOption}
+          sortOption={sortOption}
+        />
+      )}
+      <div className="h-screen bg-gray-600 shadow-lg p-0 sm:p-6 md:p-4 mdlg:p-6 lg:p-8 scrollbar-hide flex flex-grow flex-col gap-0 sm:gap-1">
+        <Navbar
+          textSearch={textSearch}
+          handleTextSearch={handleTextSearch}
+          minPrice={minPrice}
+          handleMinPrice={handleMinPrice}
+          maxPrice={maxPrice}
+          handleMaxPrice={handleMaxPrice}
+          toggleSideMenu={toggleSideMenu}
+          showSideMenu={showSideMenu}
+          sortOption={sortOption}
+          handleSortOption={handleSortOption}
+        />
+        <Routes>
+          <Route
+            index
+            path="/"
+            element={
               <ItemDisplay
                 loading={loading}
                 error={error}
@@ -83,27 +81,13 @@ const App = () => {
                 minPrice={minPrice}
                 maxPrice={maxPrice}
               />
-            </AppendSideMenu>
-          }
-        />
-        <Route
-          path="/item/:itemId"
-          element={
-            <AppendSideMenu showSideMenu={showSideMenu}>
-              <EditItemCard />
-            </AppendSideMenu>
-          }
-        />
-        <Route
-          path="/newitem"
-          element={
-            <AppendSideMenu showSideMenu={showSideMenu}>
-              <NewItemCard />
-            </AppendSideMenu>
-          }
-        />
-      </Routes>
-    </div>
+            }
+          />
+          <Route path="/item/:itemId" element={<EditItemCard />} />
+          <Route path="/newitem" element={<NewItemCard />} />
+        </Routes>
+      </div>
+    </>
   );
 };
 

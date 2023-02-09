@@ -5,7 +5,7 @@ import { SORT_OPTIONS } from "../../../utils/filterSorting.js";
 
 const AlphabetizeSort = ({ handleSortOption, sortOption }) => {
   return (
-    <div className="bg-gray-800 py-4 px-2 lg:px-3 xl:px-4  rounded-lg border-solid border-2 border-gray-600 flex items-center justify-center gap-2">
+    <div className="bg-gray-800 py-2 md:py-4  px-2 lg:px-3 xl:px-4  rounded-lg border-solid border-2 border-gray-600 flex items-center justify-center gap-2">
       <div className="flex gap-0 h-full">
         <div className="text-white grid w-4 place-items-center">
           <svg
