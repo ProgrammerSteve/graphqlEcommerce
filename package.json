@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install-server":"npm install --prefix server",
-    "install-client":"npm install --prefix client",
+    "install-server": "npm install --prefix server",
+    "install-client": "npm install --prefix client",
+    "install-root":"npm install",
     "deploy": "npm run build --prefix client && npm start --prefix server"
   },
   "repository": {
@@ -19,5 +20,24 @@
   "bugs": {
     "url": "https://github.com/ProgrammerSteve/graphqlEcommerce/issues"
   },
-  "homepage": "https://github.com/ProgrammerSteve/graphqlEcommerce#readme"
+  "homepage": "https://github.com/ProgrammerSteve/graphqlEcommerce#readme",
+  "dependencies": {
+    "webpack-cli": "^5.0.1",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@svgr/webpack": "^6.5.1",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "source-map-loader": "^4.0.1",
+    "style-loader": "^3.3.1",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "webpack": "^5.75.0"
+  }
 }

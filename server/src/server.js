@@ -3,6 +3,8 @@ const { ApolloServer } = require("apollo-server-express");
 const { makeExecutableSchema } = require("@graphql-tools/schema");
 const { loadFilesSync } = require("@graphql-tools/load-files");
 
+const PORT = process.env.PORT || 8000;
+
 const path = require("path");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -44,8 +46,9 @@ async function startApolloServer() {
     res.sendFile(path.join(__dirname, "..", "public", "index.html"));
   });
 
-  app.listen(3001, () => {
+  app.listen(PORT, () => {
     console.log("Running GraphQL server...");
+    console.log("running on port:", PORT);
   });
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ItemDetails from "./ItemDetails.jsx";
 import ItemDimensions from "./ItemDimensions.jsx";
 import { TextAreaInput } from "../inputComponents";
