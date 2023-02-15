@@ -1,3 +1,7 @@
+website hosted at: https://misty-night-9009.fly.dev/
+dockerhub: https://hub.docker.com/repository/docker/programmingsteve105/ecommerce-backend/general
+github: https://github.com/ProgrammerSteve/graphqlEcommerce
+
 # Tasks to complete
 ~~Make apollo client refetch data after mutation queries~~
 ~~Add L,W,H and weight to Item object~~
@@ -15,7 +19,7 @@ Add error/validation for inputs
 
 ~~Make ItemCard and NewItemCard responsive~~
 ~~Add dockerfile~~ 
-upload to dockerhub
+~~upload to dockerhub~~
 
 fix the spacing on the components in the side bar vertically
 make itemPreview corners rounded until the navbar loses the margin gap
@@ -39,6 +43,7 @@ Work on Orders/OrderItem queries
 make newItem page responsive
 make individual page for edit item from newItem page
 Adjust display for itemDisplay
+
 
 docker build . -t programmingsteve105/ecommerce-backend
 docker run -it -p 8000:8000 programmingsteve105/ecommerce-backend
