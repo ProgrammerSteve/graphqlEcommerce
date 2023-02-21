@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import "../../app.css";
 
-const ItemPreview = ({ item }) => {
-  const [itemState, setItem] = useState(item);
-
+const ItemPreview = ({ item, handleNavigate }) => {
+  const onClickNavigationHandler = () => {
+    handleNavigate(`/item/${item.id}`);
+  };
   return (
-    <Link
-      to={`/item/${item.id}`}
-      className="box-content h-[600px] xxs:h-[600px] sm:h-[600px] md:h-[300px]  p-2 rounded-none md:rounded-xl cardGlass shadow-lg flex flex-col xxs:flex-col xs:flex-col sm:flex-col md:flex-row flex-grow gap-2"
+    <div
+      onClick={onClickNavigationHandler}
+      className="box-content h-[600px] xxs:h-[600px] sm:h-[600px] md:h-[300px]  p-2 rounded-none sm:rounded-xl cardGlass shadow-lg flex flex-col xxs:flex-col xs:flex-col sm:flex-col md:flex-row flex-grow gap-2"
     >
       <div className="w-[200px] h-[300px] rounded-xl bg-gray-700 mx-auto">
         <img
@@ -20,11 +20,11 @@ const ItemPreview = ({ item }) => {
 
       <div className="grow h-[300px] flex gap-2 box-border mx-auto">
         <div className="h-full flex flex-col gap-2 xs:gap-4 sm:gap-3 md:gap-6 overflow-clip">
-          <HeaderDisplay value={itemState.name} />
+          <HeaderDisplay value={item.name} />
           <div className="grid grid-cols-2 sm:grid-cols-1 mdlg:grid-cols-2 gap-2 sm:gap-1 md:gap-3 justify-start w-[100%] sm:w-[70%] md:w-[100%]">
-            <TextDisplay value={itemState.stock} title={"Stock"} />
+            <TextDisplay value={item.stock} title={"Stock"} />
             <TextDisplay
-              value={itemState.price.toLocaleString("en-US", {
+              value={item.price.toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}
@@ -32,13 +32,10 @@ const ItemPreview = ({ item }) => {
             />
           </div>
 
-          <TextAreaDisplay
-            title="Description Text"
-            value={itemState.description}
-          />
+          <TextAreaDisplay title="Description Text" value={item.description} />
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const AddItemButton = () => {
+const AddItemButton = ({ handleNavigationNewItem }) => {
   return (
-    <Link
-      to="newitem"
+    <div
+      onClick={handleNavigationNewItem}
       className="bg-gray-800 hover:bg-gray-700 py-2 md:py-4  px-2 lg:px-3 xl:px-4  rounded-lg border-solid border-2 border-gray-600 cursor-pointer hover:border-gray-500 grid place-items-center"
     >
       <div className="flex justify-between gap-2 px-2">
@@ -21,7 +20,7 @@ const AddItemButton = () => {
           </svg>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
