@@ -9,6 +9,11 @@
 - docker run -it -p 8000:8000 programmingsteve105/ecommerce-backend
 - docker push programmingsteve105/ecommerce-backend
 
+# Fly.io stuff
+- fly auth login
+- flyctl launch --image programmingsteve105/ecommerce-backend:latest
+- flyctl deploy
+
 # Tasks to complete
 ## Completed
 - ~~Make apollo client refetch data after mutation queries~~
@@ -35,21 +40,25 @@
 - ~~make newItem page responsive~~
 - ~~make individual page for edit item from newItem page~~
 - ~~Add option to exit or finish editing an item on EditItemCard~~
+- ~~Make Add item button in Sidebar work~~
+- ~~Turned backend into typescript~~
 
 ## In Progress
-- Make Add item button in Sidebar work
-- Make a dual input range component for the min/max price
+- Update dockerfile to reflect typescript on the backend
 - Connect to prisma database
 - Add prisma schema
+- Make a dual input range component for the min/max price
 
 ## To do
 - Add error/validation for inputs
 - update queries for database and prisma operations
 - Add seed script to set up database
+- Turn TextAreaInput into a presentation component that uses the InputWrapper
+- Turn the ConfirmSvg into a presentation component by moving the logic to the Input Wrapper
 
 ## Long Term Tasks
-- make queries for Cart/CartItem, User
-- Work on Orders/OrderItem queries
 - Add tests on backend
 - Add test on frontend
+- make queries for Cart/CartItem, User
+- Work on Orders/OrderItem queries
 

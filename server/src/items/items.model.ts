@@ -1,6 +1,20 @@
-const { v4: uuidv4 } = require("uuid");
-
-const items = [
+import { v4 as uuidv4 } from "uuid";
+type Item = {
+  name: string,
+  src: string,
+  price: number,
+  alt: string,
+  stock: number,
+  description: string,
+  id: string,
+  length: number,
+  width: number,
+  height: number,
+  weight: number,
+  discontinued: boolean,
+  category: string,
+}
+const items: Item[] = [
   {
     name: "Soda",
     src: "https://images.unsplash.com/photo-1553456558-aff63285bdd1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
@@ -357,35 +371,32 @@ const items = [
     category: "category1",
   },
 ];
-
-function getAllItems() {
+export function getAllItems() {
   return items;
 }
-
-function getItemById(id) {
+export function getItemById(id: string) {
   return items.find((obj) => obj.id === id);
 }
-
-function getItemsByPrice(min, max) {
-  items.filter((product) => {
+export function getItemsByPrice(min: number, max: number) {
+  return items.filter((item) => {
+    if (!item?.price) throw new Error(`missing price property in item: ${item.name}`);
     return item.price >= min && item.price <= max;
   });
 }
-
-function updateItem(
-  id,
-  name,
-  src,
-  price,
-  alt,
-  stock,
-  description,
-  length,
-  width,
-  height,
-  weight,
-  discontinued,
-  category
+export function updateItem(
+  id: string,
+  name: string,
+  src: string,
+  price: number,
+  alt: string,
+  stock: number,
+  description: string,
+  length: number,
+  width: number,
+  height: number,
+  weight: number,
+  discontinued: boolean,
+  category: string
 ) {
   if (!id) throw new Error("missing a input parameter: id");
   if (!name) throw new Error("missing a input parameter: name");
@@ -401,19 +412,16 @@ function updateItem(
   if (discontinued === null || discontinued === undefined)
     throw new Error("missing a input parameter: discontinued");
   if (!category) throw new Error("missing a input parameter: category");
-
-  let index = null;
+  let index: number | null = null;
   items.forEach((obj, ind) => {
     if (obj.id === id) {
       index = ind;
     }
   });
-
   if (index === null) {
     throw new Error("no Item matches inputted id");
   }
-
-  const updatedItem = {
+  const updatedItem: Item = {
     id,
     name,
     src,
@@ -428,24 +436,22 @@ function updateItem(
     discontinued,
     category,
   };
-
   items[index] = updatedItem;
   return updatedItem;
 }
-
-function addNewItem(
-  name,
-  src,
-  price,
-  alt,
-  stock,
-  description,
-  length,
-  width,
-  height,
-  weight,
-  discontinued,
-  category
+export function addNewItem(
+  name: string,
+  src: string,
+  price: number,
+  alt: string,
+  stock: number,
+  description: string,
+  length: number,
+  width: number,
+  height: number,
+  weight: number,
+  discontinued: boolean,
+  category: string
 ) {
   if (!name) throw new Error("missing a input parameter: name");
   if (!src) throw new Error("missing a input parameter: src");
@@ -461,7 +467,7 @@ function addNewItem(
     throw new Error("missing a input parameter: discontinued");
   if (!category) throw new Error("missing a input parameter: category");
 
-  const newItem = {
+  const newItem: Item = {
     id: uuidv4(),
     name,
     src,
@@ -479,11 +485,3 @@ function addNewItem(
   items.push(newItem);
   return newItem;
 }
-
-module.exports = {
-  getAllItems,
-  getItemById,
-  getItemsByPrice,
-  addNewItem,
-  updateItem,
-};

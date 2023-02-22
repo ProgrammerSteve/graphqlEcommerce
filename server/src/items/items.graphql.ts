@@ -1,3 +1,4 @@
+export const typeDefs = `#graphql
 type Query {
   items: [Item]
   itemById(id: ID!): Item
@@ -52,3 +53,4 @@ type Item {
   discontinued: Boolean!
   category: String!
 }
+`
