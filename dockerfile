@@ -1,25 +1,23 @@
 FROM node:lts-alpine
 WORKDIR /app 
 
-# Download Webpack for building
+# Get packages
 COPY package*.json ./
-RUN npm run install-root --omit=dev
-
-# Download client
 COPY client/package*.json client/
-RUN npm run install-client --omit=dev
+COPY server/package*.json server/
+COPY server/prisma server/prisma/ 
+
+# Download Client
+COPY client/ client/
+RUN npm run install-client
+RUN npm run build --prefix client 
+RUN npm prune --production --prefix client 
 
 # Download Server
-COPY server/package*.json server/
-RUN npm run install-server --omit=dev
-
-# Copy project files
-COPY client/ client/
 COPY server/ server/
-
-#Run webpack to build client
-RUN npm run build --prefix client
-
+RUN npm run install-server
+RUN npm run build --prefix server 
+RUN npm prune --production --prefix server 
 
 USER node
 

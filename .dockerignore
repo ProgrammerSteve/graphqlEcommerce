@@ -1,4 +1,5 @@
 */node_modules
 .git
 server/public
+server/dist
 .github
