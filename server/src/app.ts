@@ -21,7 +21,5 @@ app.get("/getItems", async (req, res) => {
   res.send(await prismaGetItems())
 })
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
-});
+
 

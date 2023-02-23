@@ -48,9 +48,9 @@
 - ~~Connect to prisma database~~
 - ~~Add prisma schema~~
 - ~~Add seed script to set up database~~
+- ~~update queries for database and prisma operations~~
 
 ## In Progress
-- update queries for database and prisma operations
 - Update dockerfile to reflect typescript on the backend
 - Make a dual input range component for the min/max price
 - Turn frontend to typescript

@@ -1,5 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+export const prisma = new PrismaClient();
 import { itemsNoId } from "./data";
 
 export async function prismaSeedItems() {

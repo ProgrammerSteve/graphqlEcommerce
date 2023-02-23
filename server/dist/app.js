@@ -22,6 +22,3 @@ exports.app.get("/seedItems", async (req, res) => {
 exports.app.get("/getItems", async (req, res) => {
     res.send(await (0, prisma_1.prismaGetItems)());
 });
-exports.app.get("/*", (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, "..", "public", "index.html"));
-});

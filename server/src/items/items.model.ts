@@ -1,19 +1,109 @@
 import { v4 as uuidv4 } from "uuid";
 import { items, Item } from "../services/data";
+import { prisma } from "../services/prisma";
 
-export function getAllItems() {
+export async function getAllItems() {
+  return await prisma.item.findMany()
+}
+export async function getItemById(id: string) {
+  return await prisma.item.findFirst({
+    where: { id: id },
+  })
+}
+export async function getItemsByPrice(min: number, max: number) {
+  return await prisma.item.findMany({
+    where: {
+      price: {
+        gte: min,
+        lte: max,
+      },
+    },
+  })
+}
+export async function updateItem(
+  id: string,
+  name: string,
+  src: string,
+  price: number,
+  alt: string,
+  stock: number,
+  description: string,
+  length: number,
+  width: number,
+  height: number,
+  weight: number,
+  discontinued: boolean,
+  category: string
+) {
+  let updatedItem: Item = {
+    id,
+    name,
+    src,
+    price,
+    alt,
+    stock,
+    description,
+    length,
+    width,
+    height,
+    weight,
+    discontinued,
+    category
+  }
+  return await prisma.item.update({
+    where: { id: id },
+    data: { ...updatedItem },
+  })
+}
+export async function addNewItem(
+  name: string,
+  src: string,
+  price: number,
+  alt: string,
+  stock: number,
+  description: string,
+  length: number,
+  width: number,
+  height: number,
+  weight: number,
+  discontinued: boolean,
+  category: string
+) {
+
+  const newItem: Omit<Item, 'id'> = {
+    name,
+    src,
+    price,
+    alt,
+    stock,
+    description,
+    length,
+    width,
+    height,
+    weight,
+    discontinued,
+    category,
+  };
+
+  return await prisma.item.create({
+    data: newItem,
+  })
+}
+
+
+export function getAllItemsNoDb() {
   return items;
 }
-export function getItemById(id: string) {
+export function getItemByIdNoDb(id: string) {
   return items.find((obj) => obj.id === id);
 }
-export function getItemsByPrice(min: number, max: number) {
+export function getItemsByPriceNoDb(min: number, max: number) {
   return items.filter((item) => {
     if (!item?.price) throw new Error(`missing price property in item: ${item.name}`);
     return item.price >= min && item.price <= max;
   });
 }
-export function updateItem(
+export function updateItemNoDb(
   id: string,
   name: string,
   src: string,
@@ -69,7 +159,7 @@ export function updateItem(
   items[index] = updatedItem;
   return updatedItem;
 }
-export function addNewItem(
+export function addNewItemNoDb(
   name: string,
   src: string,
   price: number,

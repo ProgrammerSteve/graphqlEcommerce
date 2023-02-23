@@ -1,25 +1,89 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addNewItem = exports.updateItem = exports.getItemsByPrice = exports.getItemById = exports.getAllItems = void 0;
+exports.addNewItemNoDb = exports.updateItemNoDb = exports.getItemsByPriceNoDb = exports.getItemByIdNoDb = exports.getAllItemsNoDb = exports.addNewItem = exports.updateItem = exports.getItemsByPrice = exports.getItemById = exports.getAllItems = void 0;
 const uuid_1 = require("uuid");
 const data_1 = require("../services/data");
-function getAllItems() {
-    return data_1.items;
+const prisma_1 = require("../services/prisma");
+async function getAllItems() {
+    return await prisma_1.prisma.item.findMany();
 }
 exports.getAllItems = getAllItems;
-function getItemById(id) {
-    return data_1.items.find((obj) => obj.id === id);
+async function getItemById(id) {
+    return await prisma_1.prisma.item.findFirst({
+        where: { id: id },
+    });
 }
 exports.getItemById = getItemById;
-function getItemsByPrice(min, max) {
+async function getItemsByPrice(min, max) {
+    return await prisma_1.prisma.item.findMany({
+        where: {
+            price: {
+                gte: min,
+                lte: max,
+            },
+        },
+    });
+}
+exports.getItemsByPrice = getItemsByPrice;
+async function updateItem(id, name, src, price, alt, stock, description, length, width, height, weight, discontinued, category) {
+    let updatedItem = {
+        id,
+        name,
+        src,
+        price,
+        alt,
+        stock,
+        description,
+        length,
+        width,
+        height,
+        weight,
+        discontinued,
+        category
+    };
+    return await prisma_1.prisma.item.update({
+        where: { id: id },
+        data: { ...updatedItem },
+    });
+}
+exports.updateItem = updateItem;
+async function addNewItem(name, src, price, alt, stock, description, length, width, height, weight, discontinued, category) {
+    const newItem = {
+        name,
+        src,
+        price,
+        alt,
+        stock,
+        description,
+        length,
+        width,
+        height,
+        weight,
+        discontinued,
+        category,
+    };
+    return await prisma_1.prisma.item.create({
+        data: newItem,
+    });
+}
+exports.addNewItem = addNewItem;
+function getAllItemsNoDb() {
+    return data_1.items;
+}
+exports.getAllItemsNoDb = getAllItemsNoDb;
+function getItemByIdNoDb(id) {
+    return data_1.items.find((obj) => obj.id === id);
+}
+exports.getItemByIdNoDb = getItemByIdNoDb;
+function getItemsByPriceNoDb(min, max) {
     return data_1.items.filter((item) => {
         if (!item?.price)
             throw new Error(`missing price property in item: ${item.name}`);
         return item.price >= min && item.price <= max;
     });
 }
-exports.getItemsByPrice = getItemsByPrice;
-function updateItem(id, name, src, price, alt, stock, description, length, width, height, weight, discontinued, category) {
+exports.getItemsByPriceNoDb = getItemsByPriceNoDb;
+function updateItemNoDb(id, name, src, price, alt, stock, description, length, width, height, weight, discontinued, category) {
     if (!id)
         throw new Error("missing a input parameter: id");
     if (!name)
@@ -73,8 +137,8 @@ function updateItem(id, name, src, price, alt, stock, description, length, width
     data_1.items[index] = updatedItem;
     return updatedItem;
 }
-exports.updateItem = updateItem;
-function addNewItem(name, src, price, alt, stock, description, length, width, height, weight, discontinued, category) {
+exports.updateItemNoDb = updateItemNoDb;
+function addNewItemNoDb(name, src, price, alt, stock, description, length, width, height, weight, discontinued, category) {
     if (!name)
         throw new Error("missing a input parameter: name");
     if (!src)
@@ -117,4 +181,4 @@ function addNewItem(name, src, price, alt, stock, description, length, width, he
     data_1.items.push(newItem);
     return newItem;
 }
-exports.addNewItem = addNewItem;
+exports.addNewItemNoDb = addNewItemNoDb;
