@@ -1,17 +1,16 @@
-// const mongoose = require("mongoose");
-// const { loadPlanetsData } = require("../models/planets.model");
-// const MONGO_URL = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.arc3nbp.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`;
-// mongoose.connection.once("open", () => {
-//   console.log("mongoDB connection ready!");
-// });
-// mongoose.connection.on("error", (err) => {
-//   console.error(err);
-// });
-// async function mongoConnect() {
-//   await mongoose.connect(MONGO_URL);
-//   await loadPlanetsData();
-// }
-// async function mongoDisconnect() {
-//   await mongoose.disconnect();
-// }
-// module.exports = { mongoConnect, mongoDisconnect };
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.prismaGetItems = exports.prismaSeedItems = void 0;
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
+const data_1 = require("./data");
+async function prismaSeedItems() {
+    return await prisma.item.createMany({
+        data: data_1.itemsNoId
+    });
+}
+exports.prismaSeedItems = prismaSeedItems;
+async function prismaGetItems() {
+    return await prisma.item.findMany({});
+}
+exports.prismaGetItems = prismaGetItems;

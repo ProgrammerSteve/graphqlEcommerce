@@ -14,6 +14,9 @@
 - flyctl launch --image programmingsteve105/ecommerce-backend:latest
 - flyctl deploy
 
+# Prisma stuff
+- npx prisma db push
+
 # Tasks to complete
 ## Completed
 - ~~Make apollo client refetch data after mutation queries~~
@@ -42,17 +45,18 @@
 - ~~Add option to exit or finish editing an item on EditItemCard~~
 - ~~Make Add item button in Sidebar work~~
 - ~~Turned backend into typescript~~
+- ~~Connect to prisma database~~
+- ~~Add prisma schema~~
+- ~~Add seed script to set up database~~
 
 ## In Progress
+- update queries for database and prisma operations
 - Update dockerfile to reflect typescript on the backend
-- Connect to prisma database
-- Add prisma schema
 - Make a dual input range component for the min/max price
+- Turn frontend to typescript
 
 ## To do
 - Add error/validation for inputs
-- update queries for database and prisma operations
-- Add seed script to set up database
 - Turn TextAreaInput into a presentation component that uses the InputWrapper
 - Turn the ConfirmSvg into a presentation component by moving the logic to the Input Wrapper
 

@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  providerAccountId String
+  access_token      String? @db.Text
+  expires_at        Int?
+  id_token          String? @db.Text
+  provider          String
+  refresh_token     String? @db.Text
+  scope             String?
+  session_state     String?
+  token_type        String?
+  type              String
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  userId       String
+  expires      DateTime
+  sessionToken String   @unique
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model CartItem {
+  id       String @id @default(cuid())
+  itemId   String
+  item     Item   @relation(fields: [itemId], references: [id])
+  quantity Int
+  Cart     Cart   @relation(fields: [cartId], references: [id])
+  cartId   String
+
+  @@index([cartId])
+  @@index([itemId])
+}
+
+model Item {
+  id           String     @id @default(cuid())
+  name         String
+  src          String     @db.Text
+  price        Float
+  alt          String
+  stock        Int
+  description  String     @db.Text
+  length       Float
+  width        Float
+  height       Float
+  weight       Float
+  discontinued Boolean
+  category     String
+  CartItem     CartItem[]
+}
+
+model Cart {
+  id     String     @id @default(cuid())
+  userId String
+  items  CartItem[]
+  User   User[]
+
+  @@unique([userId])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  Account       Account[]
+  Session       Session[]
+  Cart          Cart?     @relation(fields: [cartId], references: [id])
+  cartId        String?
+
+  @@index([cartId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
