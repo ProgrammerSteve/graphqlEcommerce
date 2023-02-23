@@ -51,18 +51,21 @@
 - ~~update queries for database and prisma operations~~
 
 ## In Progress
-- Update dockerfile to reflect typescript on the backend
-- Make a dual input range component for the min/max price
 - Turn frontend to typescript
+- Update dockerfile to reflect typescript changes
+- Make a dual input range component for the min/max price
 
 ## To do
 - Add error/validation for inputs
 - Turn TextAreaInput into a presentation component that uses the InputWrapper
 - Turn the ConfirmSvg into a presentation component by moving the logic to the Input Wrapper
-
-## Long Term Tasks
 - Add tests on backend
 - Add test on frontend
+
+## Long Term Tasks
 - make queries for Cart/CartItem, User
-- Work on Orders/OrderItem queries
+- make queries Orders/OrderItem queries
+- make queries for Users
+- Add Tabs on navigation to go from Item/cart/orders/users
+- design UI for cart/orders/users
 
