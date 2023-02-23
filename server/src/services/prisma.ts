@@ -3,6 +3,7 @@ export const prisma = new PrismaClient();
 import { itemsNoId } from "./data";
 
 export async function prismaSeedItems() {
+  await prisma.item.deleteMany({})
   return await prisma.item.createMany({
     data: itemsNoId
   })

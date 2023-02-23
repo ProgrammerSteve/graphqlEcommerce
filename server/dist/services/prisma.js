@@ -5,6 +5,7 @@ const { PrismaClient } = require("@prisma/client");
 exports.prisma = new PrismaClient();
 const data_1 = require("./data");
 async function prismaSeedItems() {
+    await exports.prisma.item.deleteMany({});
     return await exports.prisma.item.createMany({
         data: data_1.itemsNoId
     });

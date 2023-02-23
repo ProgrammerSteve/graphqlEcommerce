@@ -2,20 +2,20 @@ import { getAllItems, getItemById, getItemsByPrice, updateItem, addNewItem } fro
 
 export const resolvers = {
   Query: {
-    items: () => {
-      return getAllItems();
+    items: async () => {
+      return await getAllItems();
     },
-    itemById: (_, args: { id: string }) => {
-      return getItemById(args.id);
+    itemById: async (_, args: { id: string }) => {
+      return await getItemById(args.id);
     },
-    itemsByPrice: (_, args: { min: number, max: number }) => {
-      return getItemsByPrice(args.min, args.max);
+    itemsByPrice: async (_, args: { min: number, max: number }) => {
+      return await getItemsByPrice(args.min, args.max);
     },
   },
 
   Mutation: {
-    addNewItem: (_, args: { name: string, src: string, price: number, alt: string, stock: number, description: string, length: number, width: number, height: number, weight: number, discontinued: boolean, category: string }) => {
-      return addNewItem(
+    addNewItem: async (_, args: { name: string, src: string, price: number, alt: string, stock: number, description: string, length: number, width: number, height: number, weight: number, discontinued: boolean, category: string }) => {
+      return await addNewItem(
         args.name,
         args.src,
         args.price,
@@ -31,8 +31,8 @@ export const resolvers = {
       );
     },
 
-    updateItem: (_, args: { id: string, name: string, src: string, price: number, alt: string, stock: number, description: string, length: number, width: number, height: number, weight: number, discontinued: boolean, category: string }) => {
-      return updateItem(
+    updateItem: async (_, args: { id: string, name: string, src: string, price: number, alt: string, stock: number, description: string, length: number, width: number, height: number, weight: number, discontinued: boolean, category: string }) => {
+      return await updateItem(
         args.id,
         args.name,
         args.src,
