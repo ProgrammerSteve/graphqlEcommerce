@@ -1,6 +1,6 @@
 import { getAllItems, getItemById, getItemsByPrice, updateItem, addNewItem } from "./items.model"
 
-export const resolvers = {
+export const items = {
   Query: {
     items: async () => {
       return await getAllItems();

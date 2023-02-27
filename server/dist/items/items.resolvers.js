@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resolvers = void 0;
+exports.items = void 0;
 const items_model_1 = require("./items.model");
-exports.resolvers = {
+exports.items = {
     Query: {
         items: async () => {
             return await (0, items_model_1.getAllItems)();

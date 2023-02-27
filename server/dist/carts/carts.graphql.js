@@ -1,4 +1,7 @@
-export const typeDefs = `#graphql
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.typeDefs = void 0;
+exports.typeDefs = `#graphql
 type Query {
   cart(cartId: ID!): [CartItem]
 }
@@ -45,4 +48,4 @@ type CartItem {
   discontinued: Boolean!
   category: String!
 }
-`
+`;

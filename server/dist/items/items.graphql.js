@@ -42,7 +42,7 @@ type Mutation {
 }
 
 type Item {
-  id: String!
+  id: ID!
   name: String!
   src: String!
   price: Float!

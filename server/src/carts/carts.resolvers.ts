@@ -1,14 +1,17 @@
-import { RemoveCartItem, upsertCartItem, getCartById } from './carts.model'
+import { RemoveCartItem, updateCartItem, addCartItem, getCartById } from './carts.model'
 
-export const resolvers = {
+export const carts = {
   Query: {
-    items: async (_, args: { cartId: string }) => {
+    cart: async (_, args: { cartId: string }) => {
       return await getCartById(args.cartId);
     },
   },
   Mutation: {
-    upsertCartItem: async (_, args: { cartItemId: string, cartId: string, quantity: number }) => {
-      return await upsertCartItem(
+    addCartItem: async (_, args: { itemId: string, cartId: string, quantity: number }) => {
+      return await addCartItem(args.itemId, args.cartId, args.quantity)
+    },
+    updateCartItem: async (_, args: { cartItemId: string, cartId: string, quantity: number }) => {
+      return await updateCartItem(
         args.cartItemId,
         args.cartId,
         args.quantity,
