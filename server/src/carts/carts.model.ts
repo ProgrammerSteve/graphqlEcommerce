@@ -115,7 +115,6 @@ export async function addCartItem(itemId: string, cartId: string, quantity: numb
   })
   if (!item) throw new Error("No item found by the specified itemId")
   if (item.stock < quantity) throw new Error("Not enough in stock to match the quantity requested")
-
   const { id, ...rest } = item;
   let cartItem: CartItem = {
     id: uuidv4(),
@@ -133,7 +132,11 @@ export async function addCartItem(itemId: string, cartId: string, quantity: numb
     }
   })
   if (!createdItem) throw new Error("Item was not added to Cart")
-  return cartItem
+  let cart: Cart = {
+    cartId: cartId,
+    cartItems: await formattedCartItems(cartId)
+  }
+  return cart
 }
 
 export async function updateCartItem(itemId: string, cartId: string, quantity: number) {

@@ -96,7 +96,11 @@ async function addCartItem(itemId, cartId, quantity) {
     });
     if (!createdItem)
         throw new Error("Item was not added to Cart");
-    return cartItem;
+    let cart = {
+        cartId: cartId,
+        cartItems: await formattedCartItems(cartId)
+    };
+    return cart;
 }
 exports.addCartItem = addCartItem;
 async function updateCartItem(itemId, cartId, quantity) {
@@ -139,3 +143,18 @@ async function RemoveCartItem(itemId, cartId) {
     return cart;
 }
 exports.RemoveCartItem = RemoveCartItem;
+/*
+tests needed:
+cartItem gets added
+cartItem gets deleted
+cartItem gets updated
+cart gets retrieved by id
+cart gets retrieved by email
+adding cart item already in existence
+adding qty higher than stock
+updating qty higher than stock
+updating item that doesn't exist
+adding item that doesn't exist
+deleting item that doesn't exist
+getting cart that doesn't exist
+*/ 

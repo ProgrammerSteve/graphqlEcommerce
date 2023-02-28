@@ -18,7 +18,7 @@ type Mutation {
     itemId: ID!
     cartId:ID!
     quantity:Int!
-  ):CartItem
+  ):Cart
 
   RemoveCartItem(
     cartId: ID!
