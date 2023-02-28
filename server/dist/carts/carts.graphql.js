@@ -3,12 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.typeDefs = void 0;
 exports.typeDefs = `#graphql
 type Query {
-  cart(cartId: ID!): [CartItem]
+  getCartByCartId(cartId: ID!): Cart
+  getCartIdByEmail(email:String!):CartId
 }
 
 type Mutation {
   updateCartItem(
-    cartItemId: ID!
+    itemId: ID!
     cartId:ID!
     quantity:Int!
   ): Cart
@@ -21,7 +22,7 @@ type Mutation {
 
   RemoveCartItem(
     cartId: ID!
-    cartItemId: ID!
+    itemId: ID!
   ): Cart
 }
 
@@ -47,5 +48,9 @@ type CartItem {
   weight: Float!
   discontinued: Boolean!
   category: String!
+}
+
+type CartId{
+  cartId:String!
 }
 `;

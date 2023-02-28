@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const server_1 = require("@apollo/server");
 const schema_1 = require("@graphql-tools/schema");
+// import { mergeTypeDefs, mergeResolvers } from "@graphql-tools/merge" //use fileloader to make it easier to make schema
 const path_1 = __importDefault(require("path"));
 const http_1 = __importDefault(require("http"));
 const items_graphql_1 = require("./items/items.graphql");
