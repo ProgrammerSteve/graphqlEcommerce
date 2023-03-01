@@ -4,6 +4,7 @@ exports.typeDefs = void 0;
 exports.typeDefs = `#graphql
 type Query {
   getCartByCartId(cartId: ID!): Cart
+  getCartByEmail(email:String!):Cart
   getCartIdByEmail(email:String!):CartId
 }
 

@@ -81,7 +81,7 @@ export async function getCartByCartId(cartId: string) {
   return cart
 }
 
-export async function getCardIdByEmail(email: string) {
+export async function getCartIdByEmail(email: string) {
   let user: User | null = await prisma.user.findUnique({
     where: {
       email: email,
@@ -98,6 +98,29 @@ export async function getCardIdByEmail(email: string) {
   if (!cartTableEntry?.id) throw new Error(`Error: No cartId found in cart for the User whose email is ${email}`)
   let cartIdObj = { cartId: cartTableEntry.id }
   return cartIdObj
+}
+
+export async function getCartByEmail(email: string) {
+  let user: User | null = await prisma.user.findUnique({
+    where: {
+      email: email,
+    },
+  });
+  if (!user) throw new Error("Error: No user found by that email")
+  if (!user?.id) throw new Error("Error: No user id found by that email")
+  let cartTableEntry: CartTableEntry | null = await prisma.cart.findUnique({
+    where: {
+      userId: user.id,
+    },
+  });
+  if (!cartTableEntry) throw new Error("Error: No cart found by that email")
+  if (!cartTableEntry?.id) throw new Error(`Error: No cartId found in cart for the User whose email is ${email}`)
+  let cartId = cartTableEntry.id
+  let cart: Cart = {
+    cartId: cartId,
+    cartItems: await formattedCartItems(cartId)
+  }
+  return cart
 }
 
 export async function addCartItem(itemId: string, cartId: string, quantity: number) {

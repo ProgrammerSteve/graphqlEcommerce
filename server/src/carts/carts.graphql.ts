@@ -1,6 +1,7 @@
 export const typeDefs = `#graphql
 type Query {
   getCartByCartId(cartId: ID!): Cart
+  getCartByEmail(email:String!):Cart
   getCartIdByEmail(email:String!):CartId
 }
 

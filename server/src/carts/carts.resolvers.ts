@@ -1,4 +1,4 @@
-import { RemoveCartItem, updateCartItem, addCartItem, getCartByCartId, getCardIdByEmail } from './carts.model'
+import { RemoveCartItem, updateCartItem, addCartItem, getCartByCartId, getCartIdByEmail, getCartByEmail } from './carts.model'
 
 export const carts = {
   Query: {
@@ -6,7 +6,10 @@ export const carts = {
       return await getCartByCartId(args.cartId);
     },
     getCartIdByEmail: async (_, args: { email: string }) => {
-      return await getCardIdByEmail(args.email)
+      return await getCartIdByEmail(args.email)
+    },
+    getCartByEmail: async (_, args: { email: string }) => {
+      return await getCartByEmail(args.email)
     }
   },
   Mutation: {

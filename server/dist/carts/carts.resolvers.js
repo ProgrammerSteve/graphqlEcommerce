@@ -8,7 +8,10 @@ exports.carts = {
             return await (0, carts_model_1.getCartByCartId)(args.cartId);
         },
         getCartIdByEmail: async (_, args) => {
-            return await (0, carts_model_1.getCardIdByEmail)(args.email);
+            return await (0, carts_model_1.getCartIdByEmail)(args.email);
+        },
+        getCartByEmail: async (_, args) => {
+            return await (0, carts_model_1.getCartByEmail)(args.email);
         }
     },
     Mutation: {

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RemoveCartItem = exports.updateCartItem = exports.addCartItem = exports.getCardIdByEmail = exports.getCartByCartId = void 0;
+exports.RemoveCartItem = exports.updateCartItem = exports.addCartItem = exports.getCartByEmail = exports.getCartIdByEmail = exports.getCartByCartId = void 0;
 const prisma_1 = require("../services/prisma");
 const uuid_1 = require("uuid");
 const formattedCartItems = async (cartId) => {
@@ -38,7 +38,7 @@ async function getCartByCartId(cartId) {
     return cart;
 }
 exports.getCartByCartId = getCartByCartId;
-async function getCardIdByEmail(email) {
+async function getCartIdByEmail(email) {
     let user = await prisma_1.prisma.user.findUnique({
         where: {
             email: email,
@@ -60,7 +60,34 @@ async function getCardIdByEmail(email) {
     let cartIdObj = { cartId: cartTableEntry.id };
     return cartIdObj;
 }
-exports.getCardIdByEmail = getCardIdByEmail;
+exports.getCartIdByEmail = getCartIdByEmail;
+async function getCartByEmail(email) {
+    let user = await prisma_1.prisma.user.findUnique({
+        where: {
+            email: email,
+        },
+    });
+    if (!user)
+        throw new Error("Error: No user found by that email");
+    if (!user?.id)
+        throw new Error("Error: No user id found by that email");
+    let cartTableEntry = await prisma_1.prisma.cart.findUnique({
+        where: {
+            userId: user.id,
+        },
+    });
+    if (!cartTableEntry)
+        throw new Error("Error: No cart found by that email");
+    if (!cartTableEntry?.id)
+        throw new Error(`Error: No cartId found in cart for the User whose email is ${email}`);
+    let cartId = cartTableEntry.id;
+    let cart = {
+        cartId: cartId,
+        cartItems: await formattedCartItems(cartId)
+    };
+    return cart;
+}
+exports.getCartByEmail = getCartByEmail;
 async function addCartItem(itemId, cartId, quantity) {
     let cartItems = await prisma_1.prisma.cartItem.findMany({
         where: {
