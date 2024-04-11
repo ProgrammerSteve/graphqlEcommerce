@@ -1,6 +1,8 @@
 FROM node:lts-alpine
 WORKDIR /app 
 
+
+
 # Get packages
 COPY package*.json ./
 COPY client/package*.json client/
@@ -20,6 +22,9 @@ RUN npm run build --prefix server
 RUN npm prune --production --prefix server 
 
 USER node
+
+# Set NODE_ENV to development
+ENV NODE_ENV=production
 
 CMD ["npm","start","--prefix","server"]
 EXPOSE 8000

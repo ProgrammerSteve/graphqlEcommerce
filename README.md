@@ -1,5 +1,5 @@
 # Links
-- website hosted at: https://misty-night-9009.fly.dev/
+- website hosted at: https://graphqlecommerce.fly.dev/
 - graphql: https://misty-night-9009.fly.dev/graphql
 - dockerhub: https://hub.docker.com/repository/docker/programmingsteve105/ecommerce-backend/general
 - github: https://github.com/ProgrammerSteve/graphqlEcommerce
@@ -11,6 +11,7 @@
 
 # Fly.io stuff
 - fly auth login
+- fly launch --no-deploy // If you want to edit env variables in fly.toml before first deployment
 - flyctl launch --image programmingsteve105/ecommerce-backend:latest
 - flyctl deploy
 

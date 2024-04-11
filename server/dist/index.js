@@ -16,6 +16,7 @@ const express4_1 = require("@apollo/server/express4");
 const drainHttpServer_1 = require("@apollo/server/plugin/drainHttpServer");
 const app_1 = require("./app");
 const PORT = process.env.PORT || 8000;
+const hostname = (process.env.NODE_ENV === 'development') ? "localhost" : "0.0.0.0";
 const httpServer = http_1.default.createServer(app_1.app);
 const itemSchema = (0, schema_1.makeExecutableSchema)({
     typeDefs: items_graphql_1.typeDefs,
@@ -36,7 +37,7 @@ async function startServer() {
     app_1.app.get("/*", (req, res) => {
         res.sendFile(path_1.default.join(__dirname, "..", "public", "index.html"));
     });
-    await new Promise((resolve) => httpServer.listen({ port: PORT }, resolve));
-    console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
+    await new Promise((resolve) => httpServer.listen({ port: PORT, hostname }, resolve));
+    console.log(`Server ready at:    http://${hostname}:${PORT}/graphql`);
 }
 startServer();

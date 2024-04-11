@@ -12,6 +12,7 @@ import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHt
 import { app } from "./app";
 
 const PORT = process.env.PORT || 8000;
+const hostname = (process.env.NODE_ENV === 'development') ?"localhost":"0.0.0.0";
 const httpServer = http.createServer(app);
 
 const itemSchema = makeExecutableSchema({
@@ -40,7 +41,7 @@ async function startServer() {
     res.sendFile(path.join(__dirname, "..", "public", "index.html"));
   });
 
-  await new Promise<void>((resolve) => httpServer.listen({ port: PORT }, resolve));
-  console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
+  await new Promise<void>((resolve) => httpServer.listen({ port: PORT,hostname}, resolve));
+  console.log(`Server ready at:    http://${hostname}:${PORT}/graphql`);
 }
 startServer()
